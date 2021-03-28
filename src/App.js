@@ -54,7 +54,7 @@ const App = () => {
     if (loading) {
       return  <BoxLoading color="#1DA1F2" size="large" />;
     } else {
-      return <div className="recipes">
+      return <div className="results">
       <QueryResult
       key= {tweetquery}
       query={tweetquery}
