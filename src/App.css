@@ -3,6 +3,10 @@
   background-image: white;
   
 }
+.particles{
+  z-index: -1;
+  position: absolute;
+}
 
 .search-form{
   min-height:10vh;
@@ -18,6 +22,7 @@
   padding:10px;
   margin:5px;
   border-radius: 5px;
+  box-shadow: 0px 1px 2px gray;
 }
 
 .search-button{
@@ -26,6 +31,7 @@
   padding:10px 20px;
   color:white;
   border-radius: 5px;
+  box-shadow: 0px 1px 2px gray;
 }
 
 .results{
