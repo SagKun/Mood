@@ -1,18 +1,16 @@
 import React,{useEffect,useState} from 'react';
-import Recipe from './Recipe'
+import QueryResult from './QueryResult'
 import "./App.css"
-
+import { BoxLoading } from 'react-loadingg';
 
 //our function trigger URL https://europe-west3-heb-sentiment-analysis-engine.cloudfunctions.net/search-query
 
 const App = () => {
   
-  
+  const[loading,setLoading] = useState([false]);
   const[tweetquery,setTweetQuery] = useState([]);
   const[avg,setAvg] = useState([]);
   const[sentiment,setSentiment] = useState([]);
-  const[recipes,setRecipes] = useState([]);
- 
   const[search,setSearch] = useState('');
   const[query,setQuery] = useState("חומוס");
   const jsonRequest=  {"query":`${query}`,
@@ -21,10 +19,11 @@ const App = () => {
 
  //this function runs everytime the page rerenders itself
   useEffect(() =>{
-    getRecipes();
+    getQuery();
   },[query]);
   
-  const getRecipes = async () => {
+  const getQuery = async () => {
+    setLoading(true);
     const response =  await fetch(
       "https://europe-west3-heb-sentiment-analysis-engine.cloudfunctions.net/search-query",
       {
@@ -45,11 +44,27 @@ const App = () => {
       setSentiment(data.result);
       setAvg(data.avg);
       setTweetQuery(data.query);
-      //setRecipes(data);
+      setLoading(false);
+      
 };
 
 
 
+  const renderLoadingOrResults = () => {
+    if (loading) {
+      return  <BoxLoading color="#1DA1F2" size="large" />;
+    } else {
+      return <div className="recipes">
+      <QueryResult
+      key= {tweetquery}
+      query={tweetquery}
+      avg={avg} 
+      sentiment={sentiment}
+      />
+      </div>;
+    }
+  }
+  
 
   const updateSearch = e => {
     setSearch(e.target.value);
@@ -63,17 +78,10 @@ const App = () => {
   return(
   <div className="App">
   <form onSubmit = {getSearch} className="search-form">
-    <input className= "search-bar" type="text" value={search} onChange={updateSearch}/>
-    <button className= "search-button" type="submit">Search</button>   
+    <button className= "search-button"  type="submit">חיפוש</button>   
+    <input className= "search-bar" style={{textAlign: 'right'}} type="text" value={search} onChange={updateSearch}/>
   </form>
-  <div className="recipes">
-    <Recipe
-    key= {query}
-    title={query}
-    calories={avg} 
-    ingredients={sentiment}
-    />
-    </div>
+  {renderLoadingOrResults()}
   </div>
   );
 }

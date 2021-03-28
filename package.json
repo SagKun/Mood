@@ -8,8 +8,10 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
     "cors": "^2.8.5",
+    "halogen": "^0.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-loadingg": "^1.7.2",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.0"
   },
