@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react';
+import React,{useEffect,useRef,useState} from 'react';
 import QueryResult from './QueryResult'
 import "./App.css"
 import { BoxLoading } from 'react-loadingg';
@@ -8,18 +8,25 @@ import particlesConfig from './config/particlesConfig';
 //our function trigger URL https://europe-west3-heb-sentiment-analysis-engine.cloudfunctions.net/search-query
 
 const App = () => {
-  
+  const initialRender = useRef(true);
+  const initialRenderStageTwo = useRef(true);
   const[loading,setLoading] = useState([false]);
   const[tweetquery,setTweetQuery] = useState([]);
   const[avg,setAvg] = useState([]);
   const[sentiment,setSentiment] = useState([]);
   const[search,setSearch] = useState('');
-  const[query,setQuery] = useState("חומוס");
+  const[query,setQuery] = useState("");
   var firstRender=true;
   
  //this function runs everytime the page rerenders itself
   useEffect(() =>{
+    if (initialRender.current) {
+      initialRender.current = false;
+      setLoading(false);
+    } else {
+    console.log("running query");
     getQuery();
+    }
   },[query]);
   
   const getQuery = async () => {
@@ -51,9 +58,14 @@ const App = () => {
 
 
   const renderLoadingOrResults = () => {
+    
     if (loading) {
       return  <BoxLoading color="#1DA1F2" size="large" />;
-    } else {
+    } else{
+      if(query==="")
+        return <div>""</div>
+      else
+      {
       return <div className="results">
       <QueryResult
       key= {tweetquery}
@@ -63,6 +75,7 @@ const App = () => {
       />
       </div>;
     }
+  }
   }
   
 
