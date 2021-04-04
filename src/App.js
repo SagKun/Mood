@@ -4,6 +4,10 @@ import "./App.css"
 import { BoxLoading } from 'react-loadingg';
 import Particles from 'react-particles-js';
 import particlesConfig from './config/particlesConfig';
+import Navbar from 'react-bootstrap/Navbar'
+import Button from 'react-bootstrap/Button'
+import Nav from 'react-bootstrap/Nav'
+import logo from './resources/logo.png';
 
 //our function trigger URL https://europe-west3-heb-sentiment-analysis-engine.cloudfunctions.net/search-query
 
@@ -77,7 +81,29 @@ const App = () => {
     }
   }
   }
+  const renderNavBar = () => {
+    
+    return <Navbar style={{fontSize: 20}} className="mr-auto" bg="primary" variant="dark" >
+    <Nav className="mr-auto">
+    <Nav.Link href="#pricing">גיטהאב</Nav.Link>
+    <Nav.Link href="#home">על הפרוייקט</Nav.Link>
+    </Nav>
+    
+     <Navbar.Brand href="#home" className="mr-auto">
+      <img style={{marginBottom: 5}} src={logo}/>
+    </Navbar.Brand>
+    
   
+    
+
+    <Nav >
+    <Nav.Link href="#features">מי אנחנו</Nav.Link>
+    <Nav.Link href="#home">איך זה עובד</Nav.Link>
+    <Nav.Link href="#home"></Nav.Link>
+    </Nav>
+  </Navbar>
+    
+  }
 
   const updateSearch = e => {
     setSearch(e.target.value);
@@ -90,13 +116,18 @@ const App = () => {
   }
   return(
   <div>
-  <Particles className="particles" height="100vh" width="100vw" params={particlesConfig} />
+    
+  <Particles className="particles" height="300vh" width="100vw" params={particlesConfig} />
+  {renderNavBar()}
+  <br></br><br></br>
   <div className="App">
-  
   <form onSubmit = {getSearch} className="search-form">
     <button className= "search-button"  type="submit">חיפוש</button>   
     <input className= "search-bar"  style={{textAlign: 'right'}} type="text" value={search} onChange={updateSearch}/>
   </form>
+  <div>
+  
+  </div>
   {renderLoadingOrResults()}
   </div>
   </div>
