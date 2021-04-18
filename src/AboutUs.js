@@ -1,11 +1,14 @@
 import React from "react";
-import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBIcon,MDBAnimation } from "mdbreact";
+import { MDBRow, MDBCol, MDBCard, MDBCardBody,MDBAnimation } from "mdbreact";
+import { MDBIcon } from 'mdb-react-ui-kit';
 import Particles from 'react-particles-js';
 import particlesConfig from './config/particlesConfig';
 import saghi from "./resources/saghi.jfif"
 import or from "./resources/or.jfif"
 import ilan from "./resources/ilan.jpg"
 import style from './aboutUs.module.css';
+import 'font-awesome/css/font-awesome.min.css';
+
 const AboutUs = () => {
 return (
     <div>
@@ -14,7 +17,7 @@ return (
      <br></br>
      <div>
 
-     <MDBAnimation type="fadeInRight" delay=".5s">
+     <MDBAnimation type="fadeInRightBig" delay=".3s">
     <MDBCard className={style.aboutUs}>
         <MDBCardBody >
           <h2 className="h1-responsive font-weight-bold my-5">
@@ -34,17 +37,16 @@ return (
               <h5 className="font-weight-bold mt-4 mb-3">שגיא קונגורוב</h5>
               <p className="text-uppercase blue-text">מפתח</p>
               <p className="grey-text">
-                Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-                consectetur, adipisci sed quia non numquam modi tempora eius.
+              סטודנט בחוג למערכות מידע באוניברסיטת חיפה. מפתח Frontend וCloud
               </p>
               <ul className="list-unstyled mb-0">
-                <a href="#!" className="p-2 fa-lg">
+                <a href="https://www.linkedin.com/in/saghikun/" className="p-2 fa-lg">
                   <MDBIcon fab icon="linkedin" className="blue-text" />
                 </a>
-                <a href="#!" className="p-2 fa-lg">
+                <a href="https://twitter.com/KunSaghi" className="p-2 fa-lg">
                   <MDBIcon fab icon="twitter" className="blue-text" />
                 </a>
-                <a href="#!" className="p-2 fa-lg">
+                <a href="https://github.com/SagKun" className="p-2 fa-lg">
                   <MDBIcon fab icon="github" className="blue-text" />
                 </a>
               </ul>
@@ -61,17 +63,16 @@ return (
               <h5 className="font-weight-bold mt-4 mb-3">אור יגול</h5>
               <p className="text-uppercase blue-text">מפתח</p>
               <p className="grey-text">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                ipsa accusantium doloremque rem laudantium totam aperiam.
+                .סטודנט בחוג למערכות מידע באוניברסיטת חיפה,מפתח BI וCloud
               </p>
               <ul className="list-unstyled mb-0">
-                <a href="#!" className="p-2 fa-lg">
+                <a href="https://www.linkedin.com/in/or-yagol/" className="p-2 fa-lg">
                   <MDBIcon fab icon="linkedin" className="blue-text" />
                 </a>
-                <a href="#!" className="p-2 fa-lg">
+                <a href="https://twitter.com/oryagol" className="p-2 fa-lg">
                   <MDBIcon fab icon="twitter" className="blue-text" />
                 </a>
-                <a href="#!" className="p-2 fa-lg">
+                <a href="https://github.com/oryagol" className="p-2 fa-lg">
                   <MDBIcon fab icon="github" className="blue-text" />
                 </a>
               </ul>
@@ -85,16 +86,16 @@ return (
                 alt="Sample avatar"
               />
               <h5 className="font-weight-bold mt-4 mb-3">פרופ' אילן שמשוני</h5>
-              <p className="text-uppercase blue-text">מרצה בחוג למערכות מידע</p>
+              <p className="text-uppercase blue-text">מנחה פרוייקט</p>
               <p className="grey-text">
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                qui officia deserunt mollit anim est fugiat nulla id eu laborum.
+              מרצה בחוג למערכות מידע באוניברסיטת חיפה.
+              תחומי מחקר: כריית נתונים וראייה ממוחשבת
               </p>
               <ul className="list-unstyled mb-0">
                 <a href="#!" className="p-2 fa-lg">
                   <MDBIcon fab icon="linkedin" className="blue-text" />
                 </a>
-                <a href="#!" className="p-2 fa-lg">
+                <a href="https://www.linkedin.com/in/ilan-shimshoni-b951aa16/" className="p-2 fa-lg">
                   <MDBIcon fab icon="twitter" className="blue-text" />
                 </a>
                 <a href="#!" className="p-2 fa-lg">

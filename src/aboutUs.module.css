@@ -13,3 +13,14 @@
     text-align: center;
     padding-bottom: 50px;
 }
+
+
+.blueText{
+    color: #4285F4  ;
+}
+
+.ourTech{
+    align-items: center;
+    padding: 50px;
+    justify-content: space-around;
+}
