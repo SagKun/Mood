@@ -6,6 +6,7 @@ import Particles from 'react-particles-js';
 import particlesConfig from './config/particlesConfig';
 import {MDBAnimation } from "mdbreact";
 import WordCloud from './WordCloud';
+import Tweet from './Tweet'
 import 'font-awesome/css/font-awesome.min.css';
 //our function trigger URL https://europe-west3-heb-sentiment-analysis-engine.cloudfunctions.net/search-query
 
@@ -19,9 +20,12 @@ const App = () => {
   const[search,setSearch] = useState('');
   const[query,setQuery] = useState("");
   const[words,setWords] = useState([]);
+  const[wordsSet,setWordsSet] = useState(false);
   const[negWords,setNegativeWords] = useState([]);
   const[posWords,setPositiveWords] = useState([]);
-  var firstRender=true;
+  const[tweetList,setTweetList] = useState([]);
+  
+  
   
  //this function runs everytime the page rerenders itself
   useEffect(() =>{
@@ -31,7 +35,6 @@ const App = () => {
     } else {
     console.log("running query");
     getQuery();
-    console.log("getting wordcloud");
     }
   },[query]);
   
@@ -59,6 +62,7 @@ const App = () => {
       setTweetQuery(data.query);
       setLoading(false);
       getWordCloud();
+      getTweetList();
       
 };
 
@@ -85,6 +89,27 @@ const getWordCloud = async () => {
     console.log("words were set to:",{words});
     console.log("negative words were set to:",{negWords});
     console.log("negative words were set to:",{posWords}) ;
+    setWordsSet(true);
+};
+
+const getTweetList= async () => {
+  const response =  await fetch(
+    "https://europe-west3-heb-sentiment-analysis-engine.cloudfunctions.net/tweets-by-search-term",
+    {
+      method: "POST",
+      headers: {
+        "Access-Control-Request-Method": "POST",
+        "Content-Type": "Application/JSON"
+      },
+      body: JSON.stringify({"search_term":`${query}`}),
+      maxAge: 3600
+      //"mode": "cors",
+    }
+  );
+    const data = await response.json();
+    console.log(data);
+    setTweetList(data.tweet_list);  
+   
 };
 
 
@@ -115,9 +140,7 @@ const getWordCloud = async () => {
 
   const renderWordCloud = () => {
     
-    if (loading) {
-      return  <BoxLoading color="#1DA1F2" size="large" />;
-    } else{
+    if (words!==[]) {
       return <div className="results">
       <MDBAnimation type="fadeInRightBig" delay="1s">
       <WordCloud words={words}/>      
@@ -152,10 +175,18 @@ const getWordCloud = async () => {
   
   </div>
   {renderLoadingOrResults()}
-  {renderWordCloud()}
+  <WordCloud words={words} style={wordsSet}/> 
+  {tweetList.map(tweet =>(
+    <Tweet key= {tweet.text} text={tweet.text} sentiment={tweet.sentiment} score={tweet.score}  />
+  ))}
+  </div>
+       
+     
+ 
+  
  
   </div>
-  </div>
+
   );
 }
 

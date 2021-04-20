@@ -63,12 +63,16 @@ function getCallback(callback) {
   };
 
 
-    
+   
     return(
-        <div className={style.cloudResult} style={{ width: "100%", height: "100%" }}>
+      
+        <div style={{ width: "100%", height: "100%" }}>
         <ReactWordcloud  callbacks={callbacks} words={this.props.words} options={options} />
         </div>
+      
   ) 
+
+
     
   
 }
