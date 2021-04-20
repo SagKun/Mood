@@ -1,21 +1,28 @@
-import React, { Component } from 'react';
+import React, { Component} from 'react';
 import "d3-transition";
 import { select } from "d3-selection";
 import ReactWordcloud from "react-wordcloud";
 import style from './result.module.css';
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
+import { MDBAnimation } from "mdbreact";
 class WordCloud extends React.Component{
+
 render(){
+let ogFontSize=10;
 function getCallback(callback) {
+  
     return function (word, event) {
       
       const isActive = callback !== "onWordMouseOut";
       const element = event.target;
-      
       const text = select(element);
       
-      
+      if(isActive)
+      {
+        ogFontSize=text.attr("font-size");
+      }
+     
       text
         .on("click", () => {
           if (isActive) {
@@ -23,9 +30,11 @@ function getCallback(callback) {
           }
         })
         .transition()
+        .duration(0)
         .attr("background", "white")
-        .attr("font-size", isActive ? "300%" : "100%")
-        .attr("text-decoration", isActive ? "underline" : "none");
+        .style("font-size", isActive? "400%":ogFontSize)
+        .attr("text-decoration", isActive ? "underline overline" : "none");
+        
     };
   }
 
@@ -34,23 +43,23 @@ function getCallback(callback) {
     enableTooltip: true,
     deterministic: false,
     fontFamily: "impact",
-    fontSizes: [20, 60],
+    fontSizes: [30, 60],
     fontStyle: "normal",
-    fontWeight: "bold",
+    fontWeight: "normal",
     padding: 1,
     rotations: 3,
-    rotationAngles: [10, 30],
+    rotationAngles: [-30, 30],
     scale: "sqrt",
     spiral: "archimedean",
-    transitionDuration: 1000
+    transitionDuration: 3000
   };
 
   const callbacks = {
     getWordTooltip: (word) =>
-      `The word "${word.text}" appears ${word.value} times.`,
+      `המילה "${word.text}" הופיעה ${word.value} פעמים.`,
     onWordClick: getCallback("onWordClick"),
     onWordMouseOut: getCallback("onWordMouseOut"),
-    onWordMouseOver: getCallback("onWordMouseOver")
+    onWordMouseOver:  getCallback("onWordMouseOver") 
   };
 
 

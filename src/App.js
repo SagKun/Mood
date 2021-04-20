@@ -32,7 +32,6 @@ const App = () => {
     console.log("running query");
     getQuery();
     console.log("getting wordcloud");
-    getWordCloud();
     }
   },[query]);
   
@@ -59,6 +58,7 @@ const App = () => {
       setAvg(data.avg);
       setTweetQuery(data.query);
       setLoading(false);
+      getWordCloud();
       
 };
 
@@ -112,6 +112,20 @@ const getWordCloud = async () => {
     }
   }
   }
+
+  const renderWordCloud = () => {
+    
+    if (loading) {
+      return  <BoxLoading color="#1DA1F2" size="large" />;
+    } else{
+      return <div className="results">
+      <MDBAnimation type="fadeInRightBig" delay="1s">
+      <WordCloud words={words}/>      
+      </MDBAnimation>
+      </div>;
+    
+  }
+  }
   
 
   const updateSearch = e => {
@@ -138,8 +152,8 @@ const getWordCloud = async () => {
   
   </div>
   {renderLoadingOrResults()}
-  <WordCloud className="results" words={words}/>
-  
+  {renderWordCloud()}
+ 
   </div>
   </div>
   );
