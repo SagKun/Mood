@@ -76,7 +76,7 @@ const particlesConfig = {
               "mode": "repulse"
             },
             "onclick": {
-              "enable": true,
+              "enable": false,
               "mode": "bubble"
             },
             "resize": true

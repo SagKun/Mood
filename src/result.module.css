@@ -1,34 +1,24 @@
-.cloudResult{
+
+
+.chart{
     border-radius:10px;
+    width: 50%;
+    height: 600px;
     box-shadow: 0px 5px 20px gray;
     display: flex;
     background-color: white;
     justify-content: space-around;
     align-items: center;
-    max-width: 60%;
+    max-width: 50%;
     margin-top: 3.5vw; 
     margin-left:auto;
     margin-right:auto;  
     vertical-align:middle;
     text-align: center;
-    padding-bottom: 50px;
+    padding: 50px;
 }
 
-.cloudResult2{
-    border-radius:10px;
-    box-shadow: 0px 5px 20px gray;
-    display: flex;
-    background-color: white;
-    justify-content: space-around;
-    align-items: center;
-    max-width: 60%;
-    margin-top: 3.5vw; 
-    margin-left:auto;
-    margin-right:auto;  
-    vertical-align:middle;
-    text-align: center;
-    padding-bottom: 50px;
-}
+
 
 .positiveResult{
     border-radius:10px;
@@ -37,7 +27,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    min-width: 40%;
+    width: 50%;
     margin-top: 3.5vw;
     background-color:green;
     padding:40px;
@@ -60,6 +50,32 @@
     color:#1DA1F2;
 }
 
+.cloudContainer{
+    box-sizing: border-box; 
+    border-radius:10px;
+    box-shadow: 0px 5px 20px gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 50%;
+    margin-top: 3.5vw; 
+    background-color: white;
+    margin-left:auto;
+    margin-right:auto;  
+    vertical-align:middle;
+    text-align: center;
+    padding: 10px; 
+    
+}
+
+.cloud{
+    
+    height:80%;
+    width:80%;
+    vertical-align:middle;
+}
+
 .negativeResult{
     border-radius:10px;
     box-shadow: 0px 5px 20px gray;
@@ -67,10 +83,13 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    min-width: 40%;
+    width: 50%;
     margin-top: 3.5vw;
     background-color: red;
     padding:40px;
+    margin-left:auto;
+    margin-right:auto;  
+    vertical-align:middle;
 }
 
 .image{

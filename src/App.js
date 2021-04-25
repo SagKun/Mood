@@ -1,6 +1,7 @@
 import React,{useEffect,useRef,useState} from 'react';
 import QueryResult from './QueryResult'
 import "./App.css"
+import SentimentLineChart from "./SentimentLineChart"
 import { BoxLoading } from 'react-loadingg';
 import Particles from 'react-particles-js';
 import particlesConfig from './config/particlesConfig';
@@ -8,7 +9,10 @@ import {MDBAnimation } from "mdbreact";
 import WordCloud from './WordCloud';
 import Tweet from './Tweet'
 import 'font-awesome/css/font-awesome.min.css';
-//our function trigger URL https://europe-west3-heb-sentiment-analysis-engine.cloudfunctions.net/search-query
+import style from './result.module.css';
+import CloudContainer from './CloudSvg'
+
+
 
 const App = () => {
   const initialRender = useRef(true);
@@ -24,8 +28,8 @@ const App = () => {
   const[negWords,setNegativeWords] = useState([]);
   const[posWords,setPositiveWords] = useState([]);
   const[tweetList,setTweetList] = useState([]);
-  
-  
+ 
+
   
  //this function runs everytime the page rerenders itself
   useEffect(() =>{
@@ -123,7 +127,8 @@ const getTweetList= async () => {
         return <div>""</div>
       else
       {
-      return <div className="results">
+      return <div>
+      <div>
       <MDBAnimation type="fadeInRightBig" delay="1s">
       <QueryResult
       key= {tweetquery}
@@ -131,8 +136,24 @@ const getTweetList= async () => {
       avg={avg} 
       sentiment={sentiment}
       />
-      
       </MDBAnimation>
+      </div>
+      
+      
+      <div className={style.cloudContainer}>
+      <WordCloud words={words} style={wordsSet}/> 
+      </div>
+
+      <div className={style.chart}>
+      <SentimentLineChart/>
+      </div>
+      
+      <div>
+      {tweetList.map(tweet =>(
+      <Tweet key= {tweet.text} text={tweet.text} sentiment={tweet.sentiment} score={tweet.score}  />
+       ))}
+      </div>
+  
       </div>;
     }
   }
@@ -171,14 +192,8 @@ const getTweetList= async () => {
     <input className= "search-bar"  style={{textAlign: 'right'}} type="text" value={search} onChange={updateSearch}/>
     <button className= "search-button"  type="submit">חיפוש</button>   
   </form>
-  <div>
-  
-  </div>
   {renderLoadingOrResults()}
-  <WordCloud words={words} style={wordsSet}/> 
-  {tweetList.map(tweet =>(
-    <Tweet key= {tweet.text} text={tweet.text} sentiment={tweet.sentiment} score={tweet.score}  />
-  ))}
+ 
   </div>
        
      

@@ -46,7 +46,7 @@ function getCallback(callback) {
     fontSizes: [30, 60],
     fontStyle: "normal",
     fontWeight: "normal",
-    padding: 1,
+    padding: 5,
     rotations: 3,
     rotationAngles: [-30, 30],
     scale: "sqrt",
@@ -66,7 +66,7 @@ function getCallback(callback) {
    
     return(
       
-        <div style={{ width: "100%", height: "100%" }}>
+        <div className={style.cloud}>
         <ReactWordcloud  callbacks={callbacks} words={this.props.words} options={options} />
         </div>
       
