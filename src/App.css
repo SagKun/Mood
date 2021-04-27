@@ -1,8 +1,9 @@
 .App{
   min-height:100vh;
   background-image: white;
-  
 }
+
+
 .particles{
   z-index: -1;
   position: absolute;
@@ -13,11 +14,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width:55%;
+  margin-left:auto;
+  margin-right:auto;  
+  vertical-align:middle;
   
 }
 
 .search-bar{
-  width:50%;
+  width:84%;
   border: 1px solid #1DA1F2 ;
   padding:10px;
   margin:5px;
@@ -29,8 +34,17 @@
   background:#1DA1F2;
   border:none;
   padding:10px 20px;
+  margin-right: 5px;
   color:white;
   border-radius: 5px;
   box-shadow: 0px 1px 2px gray;
 }
 
+button.rec-dot{
+  background-color: rgb(235, 16, 16);
+  box-shadow: 0 0 1px 3px rgba(235, 16, 16, 0.5);
+}
+
+button.rec-dot:hover, button.rec-dot:active, button.rec-dot:focus  {
+  box-shadow: 0 0 1px 3px rgba(235,16,16,0.5);
+}

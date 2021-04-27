@@ -11,7 +11,9 @@ import Tweet from './Tweet'
 import 'font-awesome/css/font-awesome.min.css';
 import style from './result.module.css';
 import CloudContainer from './CloudSvg'
-
+import CloudSvg from './CloudSvg';
+import SearchBar from "material-ui-search-bar";
+import Carousel from 'react-elastic-carousel';
 
 
 const App = () => {
@@ -28,8 +30,12 @@ const App = () => {
   const[negWords,setNegativeWords] = useState([]);
   const[posWords,setPositiveWords] = useState([]);
   const[tweetList,setTweetList] = useState([]);
- 
-
+  const[width,setWidth]=useState(0);
+  const[height,setHeight]=useState(0);
+  window.addEventListener("resize", function() {
+   setWidth(window.innerWidth);
+   setHeight(window.innerHeight);
+  });
   
  //this function runs everytime the page rerenders itself
   useEffect(() =>{
@@ -129,7 +135,7 @@ const getTweetList= async () => {
       {
       return <div>
       <div>
-      <MDBAnimation type="fadeInRightBig" delay="1s">
+      <MDBAnimation type="fadeInRight" delay="0.2s">
       <QueryResult
       key= {tweetquery}
       query={tweetquery}
@@ -139,20 +145,23 @@ const getTweetList= async () => {
       </MDBAnimation>
       </div>
       
-      
+      <MDBAnimation type="fadeInRight" delay="2s">
       <div className={style.cloudContainer}>
       <WordCloud words={words} style={wordsSet}/> 
       </div>
+      </MDBAnimation>
 
+      <MDBAnimation type="fadeInRight" delay="4s">
       <div className={style.chart}>
       <SentimentLineChart/>
       </div>
+      </MDBAnimation>
       
-      <div>
-      {tweetList.map(tweet =>(
-      <Tweet key= {tweet.text} text={tweet.text} sentiment={tweet.sentiment} score={tweet.score}  />
-       ))}
-      </div>
+      <MDBAnimation type="fadeInRight" delay="6s">
+      <Carousel pagination={false} showArrows={false} isRTL={true} enableAutoPlay={true} autoPlaySpeed={4000} >
+      {tweetList.map(tweet => <Tweet key= {tweet.text} text={tweet.text} sentiment={tweet.sentiment} score={tweet.score}  />)}
+      </Carousel>
+      </MDBAnimation>
   
       </div>;
     }
@@ -183,8 +192,8 @@ const getTweetList= async () => {
   }
   return(
   <div>
-    
-  <Particles className="particles" height="300vh" width="100vw" params={particlesConfig} />
+  {/*window.document.body.offsetHeight*/}
+  <Particles className="particles" height="300vw" width="90vw" params={particlesConfig} />
   
   <br></br><br></br>
   <div className="App">
@@ -192,8 +201,11 @@ const getTweetList= async () => {
     <input className= "search-bar"  style={{textAlign: 'right'}} type="text" value={search} onChange={updateSearch}/>
     <button className= "search-button"  type="submit">חיפוש</button>   
   </form>
+  
+  
+  
   {renderLoadingOrResults()}
- 
+  
   </div>
        
      

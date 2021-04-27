@@ -4,14 +4,14 @@ import Nav from 'react-bootstrap/Nav'
 import logo from './resources/logo.png';
 import githubLogo from './resources/GitHub-Mark-Light-32px.png';
 import {LinkContainer} from 'react-router-bootstrap';
-
+import style from './result.module.css'
 
 
 
 const header = () => {
     
     return(
-    <Navbar style={{fontSize: 20}} className="ml-auto" bg="primary" variant="dark" >
+    <Navbar style={{fontSize: 20,color: "grey"}} className={style.navBar}  variant="dark" >
     <Nav className="ml-auto">
     <LinkContainer to="/"> 
       <Nav.Link >ראשי</Nav.Link>
