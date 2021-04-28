@@ -1,6 +1,7 @@
 import React,{useEffect,useRef,useState} from 'react';
 import QueryResult from './QueryResult'
 import "./App.css"
+
 import SentimentLineChart from "./SentimentLineChart"
 import { BoxLoading } from 'react-loadingg';
 import Particles from 'react-particles-js';
@@ -158,9 +159,11 @@ const getTweetList= async () => {
       </MDBAnimation>
       
       <MDBAnimation type="fadeInRight" delay="6s">
-      <Carousel pagination={false} showArrows={false} isRTL={true} enableAutoPlay={true} autoPlaySpeed={4000} >
+      <div className="carousel-wrapper">
+      <Carousel    transitionMs={1000} stopOnHover itemsToShow={3} itemPadding={[10, 50]} pagination={false} showArrows={true} isRTL={true} enableAutoPlay={true} autoPlaySpeed={4000} >
       {tweetList.map(tweet => <Tweet key= {tweet.text} text={tweet.text} sentiment={tweet.sentiment} score={tweet.score}  />)}
       </Carousel>
+      </div>
       </MDBAnimation>
   
       </div>;

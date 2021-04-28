@@ -48,3 +48,12 @@ button.rec-dot{
 button.rec-dot:hover, button.rec-dot:active, button.rec-dot:focus  {
   box-shadow: 0 0 1px 3px rgba(235,16,16,0.5);
 }
+
+.carousel-wrapper {
+  width: 70%;
+  display: flex;
+  margin-left:auto;
+  margin-right:auto;  
+  margin-top: 5vw; 
+  vertical-align:middle;
+}
