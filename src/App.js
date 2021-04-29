@@ -160,8 +160,8 @@ const getTweetList= async () => {
       
       <MDBAnimation type="fadeInRight" delay="6s">
       <div className="carousel-wrapper">
-      <Carousel    transitionMs={1000} stopOnHover itemsToShow={3} itemPadding={[10, 50]} pagination={false} showArrows={true} isRTL={true} enableAutoPlay={true} autoPlaySpeed={4000} >
-      {tweetList.map(tweet => <Tweet key= {tweet.text} text={tweet.text} sentiment={tweet.sentiment} score={tweet.score}  />)}
+      <Carousel style={{"vertical-align":"middle"}}   transitionMs={1000} stopOnHover itemsToShow={3} itemPadding={[10, 50]} pagination={true} showArrows={true} isRTL={true} enableAutoPlay={true} autoPlaySpeed={6000} >
+      {tweetList.map(tweet => <Tweet key= {tweet.text} text={tweet.text} sentiment={tweet.sentiment} score={tweet.score.toFixed(2)}  />)}
       </Carousel>
       </div>
       </MDBAnimation>
