@@ -6,6 +6,7 @@ import style from './result.module.css';
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
 import { MDBAnimation } from "mdbreact";
+import { Resizable } from "re-resizable";
 class WordCloud extends React.Component{
 
 render(){
@@ -66,9 +67,9 @@ function getCallback(callback) {
    
     return(
       
-        <div className={style.cloud}>
+      <Resizable className={style.cloudContainer}>
         <ReactWordcloud  callbacks={callbacks} words={this.props.words} options={options} />
-        </div>
+      </Resizable>
       
   ) 
 

@@ -23,7 +23,7 @@ const header = () => {
     
     <LinkContainer to="/">
       <Navbar.Brand className="me-auto">
-        <img style={{marginBottom: 5}} src={logo}/>
+        <img style={{marginBottom: 5}} src={logo} sizes="68x35" />
       </Navbar.Brand>
     </LinkContainer>
 
