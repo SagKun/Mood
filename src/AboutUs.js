@@ -12,14 +12,14 @@ import 'font-awesome/css/font-awesome.min.css';
 const AboutUs = () => {
 return (
     <div>
-     <Particles className="particles" height="150vh" width="80vw" params={particlesConfig} />  
+     
      <br></br>
      <br></br>
      <div>
 
      <MDBAnimation type="fadeInRightBig" delay=".3s">
-    <MDBCard className={style.aboutUs}>
-        <MDBCardBody >
+    <MDBCard class="p-3 mb-2 bg-primary text-white">
+        <MDBCardBody  >
           <h2 className="h1-responsive font-weight-bold my-5">
             צוות הפרוייקט
           </h2>
@@ -94,12 +94,6 @@ return (
               <ul className="list-unstyled mb-0">
                 <a href="#!" className="p-2 fa-lg">
                   <MDBIcon fab icon="linkedin" className="blue-text" />
-                </a>
-                <a href="https://www.linkedin.com/in/ilan-shimshoni-b951aa16/" className="p-2 fa-lg">
-                  <MDBIcon fab icon="twitter" className="blue-text" />
-                </a>
-                <a href="#!" className="p-2 fa-lg">
-                  <MDBIcon fab icon="github" className="blue-text" />
                 </a>
               </ul>
             </MDBCol>

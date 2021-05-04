@@ -14,6 +14,23 @@
     padding-bottom: 50px;
 }
 
+.aboutTheProject{
+    border-radius:10px;
+    box-shadow: 0px 5px 20px gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 80%;
+    margin-top: 10vw; 
+    margin-bottom: 5vw; 
+    margin-left:auto;
+    margin-right:auto;  
+    vertical-align:middle;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
 
 .blueText{
     color: #4285F4  ;

@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './result.module.css';
 import { Resizable } from "re-resizable";
-import fotology from "fotology";
+
 
 let options = {
     size: "small", // large images only
@@ -18,7 +18,7 @@ const QueryResult = ({query,avg,sentiment}) => {
             <br></br>
             <p className={style.resultTextSentiment}>{ sentiment==="Negative"? "סנטימנט כללי שלילי ":"סנטימנט כללי חיובי" }</p>
             <p className={style.resultTextSentiment} >{ " רמת בטחון: " + avg*100+ "%"}</p>
-            <img  src={fotology({query}, [options])} alt="new"/>
+           
             
         
         </Resizable>

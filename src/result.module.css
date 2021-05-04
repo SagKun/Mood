@@ -10,7 +10,8 @@
     justify-content: space-around;
     align-items: center;
     max-width: 50%;
-    margin-top: 10vw; 
+    margin-top: 30vw; 
+    margin-top: 5vw; 
     margin-left:auto;
     margin-right:auto;  
     vertical-align:middle;
@@ -61,13 +62,11 @@
     background-color: #1DA1F2;
     text-align: center;
     color:#1DA1F2;
-    padding: 30px;
+    padding: 30px;  
     margin-top: 20%;
     margin-bottom: 20%;
     vertical-align: middle;
-    fill: 100%;
-    height:100%;
-    
+    width: 100%
     
     
   
@@ -85,7 +84,8 @@
     justify-content: space-around;
     align-items: center;
     max-width: 50%;
-    margin-top: 10vw; 
+    margin-top: 30vw; 
+    margin-top: 5vw; 
     background-color: white;
     margin-left:auto;
     margin-right:auto;  

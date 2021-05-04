@@ -11,11 +11,11 @@ import nnImage from './resources/nn.jfif'
 const AboutTheProject = () => {
   return (
     <div>
-      <Particles className="particles" height="150vh" width="80vw" params={particlesConfig} />  
+       
      <br></br>
      <br></br>
     <ScrollAnimation  animateIn='bounceInRight' duration={2.5} animateOnce={true}>
-    <MDBCard className={style.aboutUs}>
+    <MDBCard className={style.aboutTheProject}>
       <MDBCardBody>
         <h2 style={{color:"#4285F4"}} className="h2-responsive font-weight-bold text-center my-5">
           מה זה?
@@ -54,7 +54,7 @@ const AboutTheProject = () => {
     <br></br>
 
     <ScrollAnimation  animateIn='bounceInRight' duration={2.5} animateOnce={true}>
-    <MDBCard className={style.aboutUs}>
+    <MDBCard className={style.aboutTheProject}>
       <MDBCardBody>
         <h2 style={{color:"#4285F4"}} className="h2-responsive font-weight-bold text-center my-5">
         מה אנחנו מציעים?
@@ -94,7 +94,7 @@ const AboutTheProject = () => {
     <br></br>
     <br></br>
     <ScrollAnimation  animateIn='bounceInRight' duration={3} animateOnce={true}>
-    <MDBCard className={style.aboutUs}>
+    <MDBCard className={style.aboutTheProject}>
       <MDBCardBody>
         <h2 style={{color:"#4285F4"}} className="h2-responsive font-weight-bold text-center my-5">
         איך עשינו את זה?
@@ -130,7 +130,7 @@ const AboutTheProject = () => {
 
 
     <ScrollAnimation  animateIn='bounceInRight' duration={3} animateOnce={true}>
-    <MDBCard className={style.aboutUs}>
+    <MDBCard className={style.aboutTheProject}>
       <MDBCardBody>
         <h2 style={{color:"#4285F4"}} className="h2-responsive font-weight-bold text-center my-5">
         הטכנולוגיות שלנו

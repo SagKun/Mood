@@ -15,24 +15,21 @@ import CloudContainer from './CloudSvg'
 import CloudSvg from './CloudSvg';
 import SearchBar from "material-ui-search-bar";
 import Carousel from 'react-elastic-carousel';
-
+import ScrollAnimation from 'react-animate-on-scroll';
 import logo from './resources/tabLogo.png';
 const App = () => {
   const initialRender = useRef(true);
-  
   const[loading,setLoading] = useState([false]);
   const[tweetquery,setTweetQuery] = useState([]);
   const[avg,setAvg] = useState([]);
   const[sentiment,setSentiment] = useState([]);
   const[search,setSearch] = useState('');
-  
   const[query,setQuery] = useState("");
   const[words,setWords] = useState([]);
   const[wordsSet,setWordsSet] = useState(false);
   const[negWords,setNegativeWords] = useState([]);
   const[posWords,setPositiveWords] = useState([]);
   const[tweetList,setTweetList] = useState([]);
-  
   const[chartData,setChartData]=useState([]);
   
   
@@ -58,7 +55,7 @@ const App = () => {
           "Content-Type": "Application/JSON"
         },
         body: JSON.stringify({"query":`${query}`,
-        "max_tweets":200}),
+        "max_tweets":30}),
         maxAge: 3600
         //"mode": "cors",
       }
@@ -150,7 +147,7 @@ const getTweetList= async () => {
       return  <BoxLoading color="#1DA1F2" size="large" />;
     } else{
       if(query==="")
-        return <div>""</div>
+        return <div></div>
       else
       {
       return <div>
@@ -165,15 +162,15 @@ const getTweetList= async () => {
       </MDBAnimation>
       </div>
       
-      <MDBAnimation type="fadeInRight" delay="2s">
+      <ScrollAnimation  animateIn='bounceInRight' duration={2.5} animateOnce={true}>
       
       
       <WordCloud words={words} style={wordsSet}/> 
       
       
-      </MDBAnimation>
+      </ScrollAnimation>
 
-      <MDBAnimation type="fadeInRight" delay="4s">
+      <ScrollAnimation  animateIn='bounceInRight' duration={2.5} animateOnce={true}>
 
       <Resizable className={style.chart}
         defaultSize={{
@@ -186,16 +183,15 @@ const getTweetList= async () => {
       
       </Resizable>
      
-      </MDBAnimation>
-      
-      <MDBAnimation type="fadeInRight" delay="6s">
+      </ScrollAnimation>
+      <ScrollAnimation  animateIn='bounceInRight' duration={2.5} animateOnce={true}>
         
       <div className="carousel-wrapper">
       <Carousel  transitionMs={1000} stopOnHover itemsToShow={3} itemPadding={[10, 50]} pagination={true} showArrows={true} isRTL={true} enableAutoPlay={true} autoPlaySpeed={6000} >
       {tweetList.map(tweet => <Tweet key= {tweet.text} text={tweet.text} sentiment={tweet.sentiment} score={tweet.score.toFixed(2)}  />)}
       </Carousel>
       </div>
-      </MDBAnimation>
+      </ScrollAnimation>
   
       </div>;
     }
@@ -227,8 +223,8 @@ const getTweetList= async () => {
   return(
   <div>
 
-  {/*window.document.body.offsetHeight*/}
-  <Particles className="particles" height="300vw" width="90vw" params={particlesConfig} />
+  
+  
   
   <br></br><br></br>
   <div className="App">
