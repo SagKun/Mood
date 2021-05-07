@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './result.module.css';
+import style from './result.module.scss';
 import { Resizable } from "re-resizable";
 
 

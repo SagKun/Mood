@@ -2,7 +2,7 @@ import React, { Component} from 'react';
 import "d3-transition";
 import { select } from "d3-selection";
 import ReactWordcloud from "react-wordcloud";
-import style from './result.module.css';
+import style from './result.module.scss';
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
 import { MDBAnimation } from "mdbreact";

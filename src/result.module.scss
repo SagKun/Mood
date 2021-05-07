@@ -73,7 +73,31 @@
 }
 
 
+.factStyle{
+    box-sizing: border-box; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5vw; 
+    margin-left:auto;
+    margin-right:auto;  
+    text-align: center;
+    
+}
 
+.factStyle2{
+    box-sizing: border-box; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2vw; 
+    margin-left:auto;
+    margin-right:auto;  
+    text-align: center;
+    
+}
 
 .cloudContainer{
     box-sizing: border-box; 

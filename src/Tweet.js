@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './result.module.css';
+import style from './result.module.scss';
 import { MDBIcon } from 'mdb-react-ui-kit';
 
 const QueryResult = ({text,score,sentiment}) => {

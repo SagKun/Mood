@@ -1,6 +1,6 @@
 import React,{useEffect,useRef,useState} from 'react';
 import QueryResult from './QueryResult'
-import "./App.css"
+import "./App.scss"
 import { Resizable } from "re-resizable";
 import SentimentLineChart from "./SentimentLineChart"
 import { BoxLoading } from 'react-loadingg';
@@ -10,13 +10,16 @@ import {MDBAnimation } from "mdbreact";
 import WordCloud from './WordCloud';
 import Tweet from './Tweet'
 import 'font-awesome/css/font-awesome.min.css';
-import style from './result.module.css';
-import CloudContainer from './CloudSvg'
-import CloudSvg from './CloudSvg';
+import style from './result.module.scss';
+import RandomFact from './RandomFact'
+import splitIcon from './resources/split.png'
+
+
 import SearchBar from "material-ui-search-bar";
 import Carousel from 'react-elastic-carousel';
 import ScrollAnimation from 'react-animate-on-scroll';
 import logo from './resources/tabLogo.png';
+
 const App = () => {
   const initialRender = useRef(true);
   const[loading,setLoading] = useState([false]);
@@ -31,7 +34,9 @@ const App = () => {
   const[posWords,setPositiveWords] = useState([]);
   const[tweetList,setTweetList] = useState([]);
   const[chartData,setChartData]=useState([]);
-  
+
+
+
   
  //this function runs everytime the page rerenders itself
   useEffect(() =>{
@@ -144,7 +149,25 @@ const getTweetList= async () => {
   const renderLoadingOrResults = () => {
     
     if (loading) {
-      return  <BoxLoading color="#1DA1F2" size="large" />;
+      return <div>
+        <div>
+        <BoxLoading color="#1DA1F2" size="large" />
+        </div>
+        <br></br>
+        <br></br>
+        <MDBAnimation type="bounce" infinite duration="2s" >
+        <div className={style.factStyle}>
+        <p className="grey-text w-responsive mx-auto mb-5">מחפשים תוצאות..</p>
+        </div>
+        </MDBAnimation>
+        
+        <div  className={style.factStyle}>
+        <p className="grey-text w-responsive mx-auto mb-5">כמה עובדות מעניינות בנתיים..</p>
+       
+        <RandomFact/>
+        
+        </div>
+      </div> 
     } else{
       if(query==="")
         return <div></div>
@@ -164,9 +187,9 @@ const getTweetList= async () => {
       
       <ScrollAnimation  animateIn='bounceInRight' duration={2.5} animateOnce={true}>
       
-      
+      <div>
       <WordCloud words={words} style={wordsSet}/> 
-      
+      </div>
       
       </ScrollAnimation>
 
@@ -202,9 +225,9 @@ const getTweetList= async () => {
     
     if (words!==[]) {
       return <div className="results">
-      <MDBAnimation type="fadeInRightBig" delay="1s">
+      
       <WordCloud words={words}/>      
-      </MDBAnimation>
+      
       </div>;
     
   }

@@ -17,6 +17,7 @@
     "mdb-react-ui-kit": "^1.0.0-beta2",
     "mdbreact": "^4.27.0",
     "moment": "^2.29.1",
+    "node-sass": "^5.0.0",
     "particles.js": "^2.0.0",
     "re-resizable": "^6.9.0",
     "react": "^17.0.1",

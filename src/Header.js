@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav'
 import logo from './resources/logo.svg';
 import githubLogo from './resources/GitHub-Mark-Light-32px.png';
 import {LinkContainer} from 'react-router-bootstrap';
-import style from './result.module.css'
+import style from './result.module.scss'
 
 
 
@@ -17,7 +17,7 @@ const header = () => {
       <Nav.Link >ראשי</Nav.Link>
     </LinkContainer> 
     <LinkContainer to="/AboutTheProject"> 
-      <Nav.Link >איך זה עובד</Nav.Link>
+      <Nav.Link > אודות הפרוייקט</Nav.Link>
     </LinkContainer>   
     </Nav>
     

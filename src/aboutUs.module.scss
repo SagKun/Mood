@@ -21,7 +21,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    max-width: 80%;
+    width: 80%;
     margin-top: 10vw; 
     margin-bottom: 5vw; 
     margin-left:auto;
@@ -29,8 +29,15 @@
     vertical-align:middle;
     text-align: center;
     padding-bottom: 50px;
+    
 }
 
+.container{
+    align-items: center;
+    width: 100%;
+    
+    
+}
 
 .blueText{
     color: #4285F4  ;
