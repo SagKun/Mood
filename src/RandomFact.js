@@ -32,7 +32,7 @@ const getRandomFacts = () => {
   return (
     <div className={style.factStyle2}>
        {getRandomFacts}
-       {console.log(randomFact)}
+      
        <MDBAnimation type="bounceInRight"  >
       <p className="grey-text w-responsive mx-auto mb-5">{randomFact}</p>
       </MDBAnimation>

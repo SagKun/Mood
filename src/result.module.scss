@@ -71,6 +71,12 @@
     
   
 }
+.style.cloudAndFab{
+    display: flex;
+    flex-direction: row;
+    margin-left:auto;
+    margin-right:auto;
+}
 
 
 .factStyle{
@@ -108,6 +114,7 @@
     justify-content: space-around;
     align-items: center;
     max-width: 50%;
+    min-height: 200px;
     margin-top: 30vw; 
     margin-top: 5vw; 
     background-color: white;
@@ -116,6 +123,7 @@
     vertical-align:middle;
     text-align: center;
     padding: 10px; 
+    
     
 }
 .navBar{

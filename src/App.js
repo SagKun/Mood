@@ -13,12 +13,17 @@ import 'font-awesome/css/font-awesome.min.css';
 import style from './result.module.scss';
 import RandomFact from './RandomFact'
 import splitIcon from './resources/split.png'
-
+import { Fab, Action } from 'react-tiny-fab';
+import 'react-tiny-fab/dist/styles.css';
 
 import SearchBar from "material-ui-search-bar";
 import Carousel from 'react-elastic-carousel';
 import ScrollAnimation from 'react-animate-on-scroll';
 import logo from './resources/tabLogo.png';
+import { MDBIcon } from 'mdb-react-ui-kit';
+
+
+
 
 const App = () => {
   const initialRender = useRef(true);
@@ -34,8 +39,8 @@ const App = () => {
   const[posWords,setPositiveWords] = useState([]);
   const[tweetList,setTweetList] = useState([]);
   const[chartData,setChartData]=useState([]);
-
-
+  const[wordCloudState,SetwordCloudState]=useState("0");
+  
 
   
  //this function runs everytime the page rerenders itself
@@ -79,6 +84,9 @@ const App = () => {
 };
 
 
+
+
+
 const getWordCloud = async () => {
   const response =  await fetch(
     "https://europe-west3-heb-sentiment-analysis-engine.cloudfunctions.net/sorted-words-in-tweets",
@@ -97,10 +105,7 @@ const getWordCloud = async () => {
     console.log(data);
     setWords(data.all);  
     setNegativeWords(data.negative);  
-    setPositiveWords(data.postitive);  
-    console.log("words were set to:",{words});
-    console.log("negative words were set to:",{negWords});
-    console.log("negative words were set to:",{posWords}) ;
+    setPositiveWords(data.positive);  
     setWordsSet(true);
 };
 
@@ -188,7 +193,37 @@ const getTweetList= async () => {
       <ScrollAnimation  animateIn='bounceInRight' duration={2.5} animateOnce={true}>
       
       <div>
-      <WordCloud words={words} style={wordsSet}/> 
+      
+      <Fab
+        mainButtonStyles={{backgroundColor: '#1DA1F2' }}
+        alwaysShowTitle={true}
+        icon={ <MDBIcon icon="compress-arrows-alt" className="white-text" />}
+        
+        >
+        <Action
+        text="Combined"
+        onClick={ () =>SetwordCloudState("0")} 
+        icon={ <MDBIcon icon="compress-arrows-alt" className="white-text"/>}
+        style={{backgroundColor: '#1DA1F2'}}
+        >
+          {<MDBIcon fab  size="2x" icon="staylinked" className="white-text"/>}
+        </Action>
+        <Action
+            text="Positive"
+            onClick={() =>SetwordCloudState("1")}
+            style={{backgroundColor: '#1DA1F2'}}
+        >
+          {<MDBIcon far icon="smile" size="2x" className="white-text" />}
+        </Action>
+        <Action
+            text="Negative"
+            onClick={() => SetwordCloudState("-1")}
+            style={{backgroundColor: '#1DA1F2'}}
+        >
+          <MDBIcon far icon="frown"  size="2x" className="white-text" />
+        </Action>
+      </Fab>
+      {renderWordCloud()}
       </div>
       
       </ScrollAnimation>
@@ -221,17 +256,27 @@ const getTweetList= async () => {
   }
   }
 
-  const renderWordCloud = () => {
-    
-    if (words!==[]) {
-      return <div className="results">
+  
+  const renderWordCloud = () =>{
+    if(wordsSet)
+    {
+      if(wordCloudState === "1")
+    {
       
-      <WordCloud words={words}/>      
-      
-      </div>;
+      return <WordCloud words={posWords} state={wordCloudState} style={wordsSet}/>;}
+    else if(wordCloudState === "-1")
+      return <WordCloud words={negWords} state={wordCloudState} style={wordsSet}/>;
+    else return <WordCloud words={words} state={wordCloudState} style={wordsSet}/>;
+    }
+    else 
+    {
+      return <WordCloud loading={true}/>
+    }
+
     
+
   }
-  }
+  
   
 
   const updateSearch = e => {
