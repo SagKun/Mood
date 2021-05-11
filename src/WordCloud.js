@@ -7,6 +7,8 @@ import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
 import { MDBAnimation } from "mdbreact";
 import { Resizable } from "re-resizable";
+
+import { WaveTopBottomLoading} from 'react-loadingg';
 class WordCloud extends React.Component{
 
 render(){
@@ -52,7 +54,39 @@ function getCallback(callback) {
     rotationAngles: [-30, 30],
     scale: "sqrt",
     spiral: "archimedean",
-    transitionDuration: 3000
+    transitionDuration: 1000
+  };
+
+  const negOptions = {
+    colors: ["red"],
+    enableTooltip: true,
+    deterministic: false,
+    fontFamily: "impact",
+    fontSizes: [30, 60],
+    fontStyle: "normal",
+    fontWeight: "normal",
+    padding: 5,
+    rotations: 3,
+    rotationAngles: [-30, 30],
+    scale: "sqrt",
+    spiral: "archimedean",
+    transitionDuration: 1000
+  };
+
+  const posOptions = {
+    colors: ["green"],
+    enableTooltip: true,
+    deterministic: false,
+    fontFamily: "impact",
+    fontSizes: [30, 60],
+    fontStyle: "normal",
+    fontWeight: "normal",
+    padding: 5,
+    rotations: 3,
+    rotationAngles: [-30, 30],
+    scale: "sqrt",
+    spiral: "archimedean",
+    transitionDuration: 1000
   };
 
   const callbacks = {
@@ -64,14 +98,19 @@ function getCallback(callback) {
   };
 
 
-   
+   if(!this.props.loading)
+   return(
+    <Resizable className={style.cloudContainer}>
+      <ReactWordcloud  callbacks={callbacks} words={this.props.words} options={this.props.state==="0"? options:(this.props.state==="1"? posOptions:negOptions) } />
+    </Resizable>
+    
+    ) 
+    else
     return(
-      
-      <Resizable className={style.cloudContainer}>
-        <ReactWordcloud  callbacks={callbacks} words={this.props.words} options={options} />
-      </Resizable>
-      
-  ) 
+      <div className={style.cloudContainer}>
+        <WaveTopBottomLoading color="#1DA1F2" size="large" />
+      </div>
+    )
 
 
     
