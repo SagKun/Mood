@@ -11,6 +11,10 @@ import { Resizable } from "re-resizable";
 import { WaveTopBottomLoading} from 'react-loadingg';
 class WordCloud extends React.Component{
 
+shouldComponentUpdate(nextProps, nextState) {
+  return this.props.words != nextProps.words && this.props.state != nextProps.state;
+}
+
 render(){
 let ogFontSize=10;
 function getCallback(callback) {
@@ -44,7 +48,7 @@ function getCallback(callback) {
   const options = {
     colors: ["#1f5156"],
     enableTooltip: true,
-    deterministic: false,
+    deterministic: true,
     fontFamily: "impact",
     fontSizes: [30, 60],
     fontStyle: "normal",
@@ -60,7 +64,7 @@ function getCallback(callback) {
   const negOptions = {
     colors: ["#56241f"],
     enableTooltip: true,
-    deterministic: false,
+    deterministic: true,
     fontFamily: "impact",
     fontSizes: [30, 60],
     fontStyle: "normal",
@@ -76,7 +80,7 @@ function getCallback(callback) {
   const posOptions = {
     colors: ["#35561f"],
     enableTooltip: true,
-    deterministic: false,
+    deterministic: true,
     fontFamily: "impact",
     fontSizes: [30, 60],
     fontStyle: "normal",

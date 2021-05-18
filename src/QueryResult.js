@@ -1,7 +1,8 @@
 import React from 'react';
 import style from './result.module.scss';
 import { Resizable } from "re-resizable";
-import AnimatedText from "./AnimatedText"
+
+import Typing from 'react-typing-animation';
 
 let options = {
     size: "small", // large images only
@@ -10,19 +11,29 @@ let options = {
     limit: "1" // white cats only please
 }
 
-const QueryResult = ({query,avg,sentiment}) => {
-    return(
-        <Resizable className={sentiment==="Positive"? style.positiveResult : style.negativeResult}>
+class QueryResult extends React.Component{
+
+    shouldComponentUpdate(nextProps, nextState) {
+      return this.props.sentiment != nextProps.sentiment && this.props.avg != nextProps.avg && this.props.query != nextProps.query;
+    }
+    
+    render(){
+    return <Resizable className={this.props.sentiment==="Positive"? style.positiveResult : style.negativeResult}>
+        <Typing startDelay={1100}>
+        <h1 className={style.resultText}>{this.props.query}</h1> 
+        <br></br>
+        <p className={style.resultTextSentiment}>{ this.props.sentiment==="Negative"? "סנטימנט  שלילי ":"סנטימנט  חיובי" }</p>
+        <p className={style.resultTextSentiment} >{ " רמת בטחון: " + this.props.avg*100+ "%"}</p>
+        </Typing>
+       
         
-            <AnimatedText className={style.resultText} text={query} />
-            <br></br>
-            <p className={style.resultTextSentiment}>{ sentiment==="Negative"? "סנטימנט  שלילי ":"סנטימנט  חיובי" }</p>
-            <p className={style.resultTextSentiment} >{ " רמת בטחון: " + avg*100+ "%"}</p>
-           
-            
+    
+    </Resizable>
         
-        </Resizable>
-    );
-}
+      
+    }
+    }
 
 export default QueryResult;
+
+

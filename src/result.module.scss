@@ -29,7 +29,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    
+    min-height: 200px;
     width:50%;
     max-width: 90%;
     margin-top: 10vw; 
@@ -43,6 +43,7 @@
 
 .negativeResult{
     box-sizing: border-box; 
+    min-height: 200px;
     border-radius:10px;
     box-shadow: 0px 5px 20px gray;
     display: flex;

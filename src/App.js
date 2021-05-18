@@ -60,7 +60,7 @@ const App = () => {
       initialRender.current = false;
       setLoading(false);
     } else {
-    console.log("running query");
+   
     getQuery();
     }
   },[query]);
@@ -82,7 +82,7 @@ const App = () => {
       }
     );
       const data = await response.json();
-      console.log(data);
+    
       setSentiment(data.result);
       setAvg(data.avg);
       
@@ -113,7 +113,7 @@ const getWordCloud = async () => {
     }
   );
     const data = await response.json();
-    console.log(data);
+    
     setWords(data.all);  
     setNegativeWords(data.negative);  
     setPositiveWords(data.positive);  
@@ -153,10 +153,10 @@ const getTweetList= async () => {
     }
   );
     const data = await response.json();
-    console.log(data);
+   
     
     setTweetList(data.tweet_list);  
-    console.log("tweet list length is:",tweetList.length);
+    
    
 };
 
@@ -303,7 +303,7 @@ const getTweetList= async () => {
   return(
   <div>
 
-  
+
   
   
   <br></br><br></br>
