@@ -7,6 +7,7 @@ import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
 import { MDBAnimation } from "mdbreact";
 import { Resizable } from "re-resizable";
+import "./Cloud.css"
 
 import { WaveTopBottomLoading} from 'react-loadingg';
 class WordCloud extends React.Component{
@@ -104,9 +105,12 @@ function getCallback(callback) {
 
    if(!this.props.loading)
    return(
+    
     <Resizable className={style.cloudContainer}>
       <ReactWordcloud  callbacks={callbacks} words={this.props.words} options={this.props.state==="0"? options:(this.props.state==="1"? posOptions:negOptions) } />
     </Resizable>
+ 
+      
     
     ) 
     else
