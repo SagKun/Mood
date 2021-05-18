@@ -14,6 +14,35 @@
     padding-bottom: 50px;
 }
 
+.contactUs{
+   
+    border-radius:10px;
+    box-shadow: 0px 5px 20px gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 40%;
+    margin-top: 10vw; 
+    margin-bottom: 5vw; 
+    margin-left:auto;
+    margin-right:auto;  
+    vertical-align:middle;
+    padding: 50px;
+    
+}
+
+.form{
+    display: flex;
+    margin-left:auto;
+    margin-right:auto; 
+    align-items: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 .aboutTheProject{
     border-radius:10px;
     box-shadow: 0px 5px 20px gray;

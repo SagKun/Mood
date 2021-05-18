@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './result.module.scss';
 import { Resizable } from "re-resizable";
-
+import AnimatedText from "./AnimatedText"
 
 let options = {
     size: "small", // large images only
@@ -14,9 +14,9 @@ const QueryResult = ({query,avg,sentiment}) => {
     return(
         <Resizable className={sentiment==="Positive"? style.positiveResult : style.negativeResult}>
         
-            <h1 className={style.resultText}>{query}</h1>
+            <AnimatedText className={style.resultText} text={query} />
             <br></br>
-            <p className={style.resultTextSentiment}>{ sentiment==="Negative"? "סנטימנט כללי שלילי ":"סנטימנט כללי חיובי" }</p>
+            <p className={style.resultTextSentiment}>{ sentiment==="Negative"? "סנטימנט  שלילי ":"סנטימנט  חיובי" }</p>
             <p className={style.resultTextSentiment} >{ " רמת בטחון: " + avg*100+ "%"}</p>
            
             

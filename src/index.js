@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import './App.scss';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,19 +10,22 @@ import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AboutUs from "./AboutUs"
 import AboutTheProject from "./AboutTheProject"
 import Header from "./Header"
+import ContactUs from "./ContactUs"
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
-
+import { formatMs } from '@material-ui/core';
+import NavBar from "./NavBar";
 
 ReactDOM.render(
   <React.StrictMode>
   <Router>
- <Header/>
+ <NavBar/>
  <Switch>
   <Route exact path="/" component={App} />
   <Route path="/AboutUs" component={AboutUs} />
   <Route path="/AboutTheProject" component={AboutTheProject} />  
+  <Route path="/ContactUs" component={ContactUs} />  
  </Switch>
 </Router>
 </React.StrictMode>,

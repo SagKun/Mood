@@ -42,7 +42,7 @@ function getCallback(callback) {
   }
 
   const options = {
-    colors: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b"],
+    colors: ["#1f5156"],
     enableTooltip: true,
     deterministic: false,
     fontFamily: "impact",
@@ -51,14 +51,14 @@ function getCallback(callback) {
     fontWeight: "normal",
     padding: 5,
     rotations: 3,
-    rotationAngles: [-30, 30],
+    rotationAngles: [0],
     scale: "sqrt",
     spiral: "archimedean",
     transitionDuration: 1000
   };
 
   const negOptions = {
-    colors: ["red"],
+    colors: ["#56241f"],
     enableTooltip: true,
     deterministic: false,
     fontFamily: "impact",
@@ -67,14 +67,14 @@ function getCallback(callback) {
     fontWeight: "normal",
     padding: 5,
     rotations: 3,
-    rotationAngles: [-30, 30],
+    rotationAngles: [0],
     scale: "sqrt",
     spiral: "archimedean",
     transitionDuration: 1000
   };
 
   const posOptions = {
-    colors: ["green"],
+    colors: ["#35561f"],
     enableTooltip: true,
     deterministic: false,
     fontFamily: "impact",
@@ -83,7 +83,7 @@ function getCallback(callback) {
     fontWeight: "normal",
     padding: 5,
     rotations: 3,
-    rotationAngles: [-30, 30],
+    rotationAngles: [0],
     scale: "sqrt",
     spiral: "archimedean",
     transitionDuration: 1000
@@ -108,7 +108,7 @@ function getCallback(callback) {
     else
     return(
       <div className={style.cloudContainer}>
-        <WaveTopBottomLoading color="#1DA1F2" size="large" />
+        <WaveTopBottomLoading color="#1f5156" size="large" />
       </div>
     )
 

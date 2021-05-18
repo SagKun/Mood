@@ -1,4 +1,4 @@
-import React,{useEffect,useRef,useState} from 'react';
+import React,{useEffect,useRef,useState,useLayoutEffect} from 'react';
 import QueryResult from './QueryResult'
 import "./App.scss"
 import { Resizable } from "re-resizable";
@@ -40,6 +40,17 @@ const App = () => {
   const[tweetList,setTweetList] = useState([]);
   const[chartData,setChartData]=useState([]);
   const[wordCloudState,SetwordCloudState]=useState("0");
+  const [size, setSize] = useState([0, 0]);
+  
+  
+  useLayoutEffect(() => {
+      function updateSize() {
+        setSize([window.innerWidth, window.innerHeight]);
+      }
+      window.addEventListener('resize', updateSize);
+      updateSize();
+      return () => window.removeEventListener('resize', updateSize);
+    }, []);
   
 
   
@@ -156,7 +167,7 @@ const getTweetList= async () => {
     if (loading) {
       return <div>
         <div>
-        <BoxLoading color="#1DA1F2" size="large" />
+        <BoxLoading color="#1f5156" size="large" />
         </div>
         <br></br>
         <br></br>
@@ -167,7 +178,7 @@ const getTweetList= async () => {
         </MDBAnimation>
         
         <div  className={style.factStyle}>
-        <p className="grey-text w-responsive mx-auto mb-5">כמה עובדות מעניינות בנתיים..</p>
+        
        
         <RandomFact/>
         
@@ -192,37 +203,38 @@ const getTweetList= async () => {
       
       <ScrollAnimation  animateIn='bounceInRight' duration={2.5} animateOnce={true}>
       
-      <div>
+     
       
+     <div>
       <Fab
-        mainButtonStyles={{backgroundColor: '#1DA1F2' }}
+        mainButtonStyles={{backgroundColor: '#1f5156', marginRight: size[0]*0.18 }}
         alwaysShowTitle={true}
-        icon={ <MDBIcon icon="compress-arrows-alt" className="white-text" />}
-        
+        icon={ <MDBIcon icon="compress-arrows-alt" className="white-text" />} 
         >
         <Action
         text="Combined"
         onClick={ () =>SetwordCloudState("0")} 
         icon={ <MDBIcon icon="compress-arrows-alt" className="white-text"/>}
-        style={{backgroundColor: '#1DA1F2'}}
+        style={{backgroundColor: '#1f5156' , marginRight: size[0]*0.18}}
         >
           {<MDBIcon fab  size="2x" icon="staylinked" className="white-text"/>}
         </Action>
         <Action
             text="Positive"
             onClick={() =>SetwordCloudState("1")}
-            style={{backgroundColor: '#1DA1F2'}}
+            style={{backgroundColor: '#1f5156', marginRight: size[0]*0.18}}
         >
           {<MDBIcon far icon="smile" size="2x" className="white-text" />}
         </Action>
         <Action
             text="Negative"
             onClick={() => SetwordCloudState("-1")}
-            style={{backgroundColor: '#1DA1F2'}}
+            style={{backgroundColor: '#1f5156', marginRight: size[0]*0.18}}
         >
           <MDBIcon far icon="frown"  size="2x" className="white-text" />
         </Action>
       </Fab>
+      
       {renderWordCloud()}
       </div>
       
@@ -245,7 +257,7 @@ const getTweetList= async () => {
       <ScrollAnimation  animateIn='bounceInRight' duration={2.5} animateOnce={true}>
         
       <div className="carousel-wrapper">
-      <Carousel  transitionMs={1000} stopOnHover itemsToShow={3} itemPadding={[10, 50]} pagination={true} showArrows={true} isRTL={true} enableAutoPlay={true} autoPlaySpeed={6000} >
+      <Carousel  transitionMs={1000} stopOnHover itemsToShow={3} itemPadding={[10, 50]} isRTL={true} enableAutoPlay={true} autoPlaySpeed={6000} >
       {tweetList.map(tweet => <Tweet key= {tweet.text} text={tweet.text} sentiment={tweet.sentiment} score={tweet.score.toFixed(2)}  />)}
       </Carousel>
       </div>

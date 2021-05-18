@@ -32,10 +32,10 @@ const header = () => {
     <LinkContainer to="/AboutUs"> 
       <Nav.Link >עלינו</Nav.Link>
     </LinkContainer>
-    <LinkContainer to="/AboutUs"> 
+    <LinkContainer to="/ContactUs"> 
       <Nav.Link >צור קשר</Nav.Link>
     </LinkContainer>
-    <Nav.Link class="fa fa-search" href="https://github.com/SagKun/EihHamargash" icon={githubLogo} > github</Nav.Link>
+    <Nav.Link class="fa fa-search" href="https://github.com/SagKun/EihHamargash" icon={githubLogo} > GitHub</Nav.Link>
     <img style={{width: 32, height:32,marginTop:6}} src={githubLogo}/>
    
     </Nav>

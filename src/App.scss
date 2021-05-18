@@ -23,7 +23,7 @@
 
 .search-bar{
   width:84%;
-  border: 1px solid #1DA1F2 ;
+  border: 1px solid #1f5156;
   padding:10px;
   margin:5px;
   border-radius: 5px;
@@ -31,7 +31,7 @@
 }
 
 .search-button{
-  background:#1DA1F2;
+  background:#1f5156;
   border:none;
   padding:10px 20px;
   margin-right: 5px;
@@ -59,7 +59,7 @@
 .rec.rec-arrow {
   vertical-align:middle;
   color:white;
-  background-color:#1DA1F2 ;
+  background-color:#1f5156 ;
   display: middle;
   flex-direction: column;
   justify-content: space-around;
@@ -81,28 +81,28 @@
   visibility: hidden;
 }
 button.rec.rec-arrow:hover{
-  background-color: #1DA1F2;
+  background-color: #1f5156;
   transform: scale(1.2);
   opacity: 100%;
   size:150%;
 }
 
 button.rec.rec-arrow:active{
-  background-color: #1DA1F2;
+  background-color: #1f5156;
   opacity: 100%;
 }
 
 button.rec.rec-arrow:focus{
-  background-color: #1DA1F2;
+  background-color: #1f5156;
   opacity: 100%;
 }
 
 button.rec-dot{
-  background-color: #1DA1F2;
+  background-color: #1f5156;
 }
 
 button.rec-dot{
-  background-color: #1DA1F2;
+  background-color: #1f5156;
   opacity: 70% ;
   box-shadow: none;
   margin-top: -3vw;

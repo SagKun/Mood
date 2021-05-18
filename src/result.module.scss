@@ -2,14 +2,14 @@
 
 .chart{
     border-radius:10px;
-    width: 50%;
+    min-width:50%;
+    max-width: 90%;
     height: 600px;
     box-shadow: 0px 5px 20px gray;
     display: flex;
     background-color: white;
     justify-content: space-around;
     align-items: center;
-    max-width: 50%;
     margin-top: 30vw; 
     margin-top: 5vw; 
     margin-left:auto;
@@ -29,9 +29,11 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    max-width: 50%;
+    
+    width:50%;
+    max-width: 90%;
     margin-top: 10vw; 
-    background-color: green;
+    background-color:#35561f;
     margin-left:auto;
     margin-right:auto;  
     vertical-align:middle;
@@ -47,9 +49,12 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    max-width: 50%;
+    
+    
+
+    max-width: 100%;
     margin-top: 10vw; 
-    background-color: red;
+    background-color: #56241f;
     margin-left:auto;
     margin-right:auto;  
     vertical-align:middle;
@@ -59,9 +64,9 @@
 .tweet{
     border-radius:10px;
     box-shadow: 0px 5px 20px gray;
-    background-color: #1DA1F2;
+    background-color: #1f5156;
     text-align: center;
-    color:#1DA1F2;
+    color:#1f5156;
     padding: 30px;  
     margin-top: 20%;
     margin-bottom: 20%;
@@ -113,7 +118,9 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    max-width: 50%;
+    width: 50%;
+    min-width:50%;
+    max-width: 90%;
     min-height: 200px;
     margin-top: 30vw; 
     margin-top: 5vw; 
@@ -127,7 +134,7 @@
     
 }
 .navBar{
-    background-color: #1DA1F2;
+    background-color: #1f5156;
 }
 .svgContainer{
     display: flex;
@@ -167,12 +174,12 @@ color:white;
 
 
 .positiveResultText{
-    color:green;
+    color:#35561f ;
     }
 
     
 .negativeResultText{
-    color:red;
+    color:#56241f;
     }
 
 .smiley{
