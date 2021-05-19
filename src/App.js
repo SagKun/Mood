@@ -215,7 +215,7 @@ const getTweetList= async () => {
         text="Combined"
         onClick={ () =>SetwordCloudState("0")} 
         icon={ <MDBIcon icon="compress-arrows-alt" className="white-text"/>}
-        style={{backgroundColor: '#1f5156' , marginRight: size[0]*0.18}}
+        style={{backgroundColor: 'white',color:'#1f5156' , marginRight: size[0]*0.18}}
         >
           {<MDBIcon fab  size="2x" icon="staylinked" className="white-text"/>}
         </Action>
@@ -242,16 +242,11 @@ const getTweetList= async () => {
 
       <ScrollAnimation  animateIn='bounceInRight' duration={2.5} animateOnce={true}>
 
-      <Resizable className={style.chart}
-        defaultSize={{
-          width:"50%",
-          height:700,
-        }}
-      >
+      
       
       <SentimentLineChart data={chartData}/>
       
-      </Resizable>
+      
      
       </ScrollAnimation>
       <ScrollAnimation  animateIn='bounceInRight' duration={2.5} animateOnce={true}>
@@ -308,6 +303,7 @@ const getTweetList= async () => {
   
   <br></br><br></br>
   <div className="App">
+ 
   <form onSubmit = {getSearch} className="search-form">
     <input className= "search-bar"  style={{textAlign: 'right'}} type="text" value={search} onChange={updateSearch}/>
     <button className= "search-button"  type="submit">חיפוש</button>   

@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import moment from 'moment';
+import style from './result.module.scss';
 
 const CustomizedNegDot = (props) => {
   const { cx, cy, stroke, payload, value } = props;
@@ -44,7 +45,7 @@ render(){
 
 
     return(
-        
+        <div className={style.chart}>
         <ResponsiveContainer width="100%" height="100%">
         <LineChart
           width={800}
@@ -73,6 +74,7 @@ render(){
           <Line type="monotone" name="ציוצים חיוביים" dataKey="Num_Of_Pos" stroke="#35561f" dot={<CustomizedPosDot />}/>
         </LineChart>
       </ResponsiveContainer>
+      </div>
         
          
       

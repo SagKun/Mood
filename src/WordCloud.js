@@ -47,7 +47,7 @@ function getCallback(callback) {
   }
 
   const options = {
-    colors: ["#1f5156"],
+    colors: ["white"],
     enableTooltip: true,
     deterministic: true,
     fontFamily: "impact",
@@ -62,37 +62,9 @@ function getCallback(callback) {
     transitionDuration: 1000
   };
 
-  const negOptions = {
-    colors: ["#56241f"],
-    enableTooltip: true,
-    deterministic: true,
-    fontFamily: "impact",
-    fontSizes: [30, 60],
-    fontStyle: "normal",
-    fontWeight: "normal",
-    padding: 5,
-    rotations: 3,
-    rotationAngles: [0],
-    scale: "sqrt",
-    spiral: "archimedean",
-    transitionDuration: 1000
-  };
+  
 
-  const posOptions = {
-    colors: ["#35561f"],
-    enableTooltip: true,
-    deterministic: true,
-    fontFamily: "impact",
-    fontSizes: [30, 60],
-    fontStyle: "normal",
-    fontWeight: "normal",
-    padding: 5,
-    rotations: 3,
-    rotationAngles: [0],
-    scale: "sqrt",
-    spiral: "archimedean",
-    transitionDuration: 1000
-  };
+
 
   const callbacks = {
     getWordTooltip: (word) =>
@@ -106,9 +78,9 @@ function getCallback(callback) {
    if(!this.props.loading)
    return(
     
-    <Resizable className={style.cloudContainer}>
-      <ReactWordcloud  callbacks={callbacks} words={this.props.words} options={this.props.state==="0"? options:(this.props.state==="1"? posOptions:negOptions) } />
-    </Resizable>
+    <div className={this.props.state==="0"? style.cloudContainer:(this.props.state==="1"? style.posCloudContainer:style.negCloudContainer) }>
+      <ReactWordcloud  callbacks={callbacks} words={this.props.words} options={options} />
+    </div>
  
       
     
