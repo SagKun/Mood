@@ -91,6 +91,7 @@ const App = () => {
       getWordCloud();
       getGraph(data.id);
       getTweetList();
+      SetwordCloudState("0");
       
 };
 
@@ -154,7 +155,7 @@ const getTweetList= async () => {
   );
     const data = await response.json();
    
-    
+    console.log(data);
     setTweetList(data.tweet_list);  
     
    
@@ -207,7 +208,8 @@ const getTweetList= async () => {
       
      <div>
       <Fab
-        mainButtonStyles={{backgroundColor: '#1f5156', marginRight: size[0]*0.18 }}
+        mainButtonStyles={{borderColor:"white",backgroundColor: '#1f5156',bottom: 24, right: 24}}
+        
         alwaysShowTitle={true}
         icon={ <MDBIcon icon="compress-arrows-alt" className="white-text" />} 
         >
@@ -215,21 +217,21 @@ const getTweetList= async () => {
         text="Combined"
         onClick={ () =>SetwordCloudState("0")} 
         icon={ <MDBIcon icon="compress-arrows-alt" className="white-text"/>}
-        style={{backgroundColor: 'white',color:'#1f5156' , marginRight: size[0]*0.18}}
+        style={{backgroundColor: '#1f5156' ,bottom: 24, right: 24}}
         >
           {<MDBIcon fab  size="2x" icon="staylinked" className="white-text"/>}
         </Action>
         <Action
             text="Positive"
             onClick={() =>SetwordCloudState("1")}
-            style={{backgroundColor: '#1f5156', marginRight: size[0]*0.18}}
+            style={{backgroundColor: '#1f5156', bottom: 24, right: 24 }}
         >
           {<MDBIcon far icon="smile" size="2x" className="white-text" />}
         </Action>
         <Action
             text="Negative"
             onClick={() => SetwordCloudState("-1")}
-            style={{backgroundColor: '#1f5156', marginRight: size[0]*0.18}}
+            style={{backgroundColor: '#1f5156', bottom: 24, right: 24}}
         >
           <MDBIcon far icon="frown"  size="2x" className="white-text" />
         </Action>
