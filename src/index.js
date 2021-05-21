@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import './App.scss';
+import './App.css';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -14,6 +14,8 @@ import ContactUs from "./ContactUs"
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 import { formatMs } from '@material-ui/core';
 import NavBar from "./NavBar";
 

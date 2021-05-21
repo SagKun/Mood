@@ -1,6 +1,6 @@
 import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon, MDBInput,MDBAnimation } from 'mdbreact';
-import style from "./aboutUs.module.scss"
+import style from "./aboutUs.module.css"
 
 const ContactUs = () => {
 return (

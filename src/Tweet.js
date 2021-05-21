@@ -1,19 +1,29 @@
 import React from 'react';
-import style from './result.module.scss';
+import style from './result.module.css';
 import { MDBIcon } from 'mdb-react-ui-kit';
+import { MDBRow, MDBCol, MDBCard, MDBCardBody,MDBAnimation, MDBCardImage} from "mdbreact";
 
-const QueryResult = ({text,score,sentiment}) => {
+
+
+  class Tweet extends React.Component{
+    
+    
+
+   
+    render(){
+
+     
+
     return(
-        <div className={style.tweet}>
-            
-            <p  className={style.smiley}>
-                  <MDBIcon far icon={sentiment==="Positive"? "smile":"frown"} size="2x" className="white-text" />
-                </p>
-            <h5 className={style.resultText}>{text}</h5>
-            <p className={style.resultTextSentiment}> {sentiment==="Negative"? "סנטימנט שלילי ":"סנטימנט חיובי"}</p>
-            <p className={style.resultTextSentiment} >{ "רמת בטחון: "+score*100 +"%" }</p>
-        </div>
+            <MDBCard   onClick={()=> window.open(this.props.url, "_blank")} style = {{"background-color": `${(this.props.sentiment==="Negative")? "#56241f":"#35561f"}`,color:"white","border-radius":"10px"}} className={style.tweet}>
+            <p  className="p-responsive font-weight-bold my-1">{this.props.text}</p>
+            <p  className="p-responsive font-weight-bold my-2"> {this.props.sentiment==="Negative"? "סנטימנט שלילי ":"סנטימנט חיובי"}</p>
+            <p  className="p-responsive font-weight-bold my-2" >{ "רמת בטחון: "+this.props.score*100 +"%" }</p>
+            </MDBCard>
+          
+        
     );
 }
+}
 
-export default QueryResult;
+export default Tweet;

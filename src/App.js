@@ -1,6 +1,7 @@
 import React,{useEffect,useRef,useState,useLayoutEffect} from 'react';
 import QueryResult from './QueryResult'
-import "./App.scss"
+import Draggable from 'react-draggable';
+import "./App.css"
 import { Resizable } from "re-resizable";
 import SentimentLineChart from "./SentimentLineChart"
 import { BoxLoading } from 'react-loadingg';
@@ -10,18 +11,19 @@ import {MDBAnimation } from "mdbreact";
 import WordCloud from './WordCloud';
 import Tweet from './Tweet'
 import 'font-awesome/css/font-awesome.min.css';
-import style from './result.module.scss';
+import style from './result.module.css';
 import RandomFact from './RandomFact'
 import splitIcon from './resources/split.png'
 import { Fab, Action } from 'react-tiny-fab';
 import 'react-tiny-fab/dist/styles.css';
-
+import Slider from "react-slick";
 import SearchBar from "material-ui-search-bar";
 import Carousel from 'react-elastic-carousel';
 import ScrollAnimation from 'react-animate-on-scroll';
 import logo from './resources/tabLogo.png';
 import { MDBIcon } from 'mdb-react-ui-kit';
-
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 
 
@@ -42,7 +44,39 @@ const App = () => {
   const[wordCloudState,SetwordCloudState]=useState("0");
   const [size, setSize] = useState([0, 0]);
   
-  
+  const settings = {
+      dots: true,
+      autoplay:true,
+      arrows: true,
+      infinite: true,
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      pauseOnHover: true,
+      accessibility: true,
+      rows: 2,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            initialSlide: 1
+          }
+        }
+        
+      ]
+  };
   useLayoutEffect(() => {
       function updateSize() {
         setSize([window.innerWidth, window.innerHeight]);
@@ -60,7 +94,6 @@ const App = () => {
       initialRender.current = false;
       setLoading(false);
     } else {
-   
     getQuery();
     }
   },[query]);
@@ -82,15 +115,13 @@ const App = () => {
       }
     );
       const data = await response.json();
-    
+      console.log("query",data);
       setSentiment(data.result);
       setAvg(data.avg);
-      
       setTweetQuery(data.query);
-      setLoading(false);
+      getTweetList();
       getWordCloud();
       getGraph(data.id);
-      getTweetList();
       SetwordCloudState("0");
       
 };
@@ -114,7 +145,7 @@ const getWordCloud = async () => {
     }
   );
     const data = await response.json();
-    
+    console.log("cloud",data);
     setWords(data.all);  
     setNegativeWords(data.negative);  
     setPositiveWords(data.positive);  
@@ -136,6 +167,7 @@ const getGraph = async (searchId) => {
     }
   );
     const data = await response.json();
+    console.log("graph",data)
     setChartData(data.dates); 
 };
 
@@ -154,11 +186,9 @@ const getTweetList= async () => {
     }
   );
     const data = await response.json();
-   
-    console.log(data);
-    setTweetList(data.tweet_list);  
-    
-   
+    console.log("tweetlist",data);
+    setTweetList(data.tweet_list); 
+    setLoading(false);
 };
 
 
@@ -198,6 +228,7 @@ const getTweetList= async () => {
       query={tweetquery}
       avg={parseFloat(avg).toFixed(2)} 
       sentiment={sentiment}
+      number={tweetList.length}
       />
       </MDBAnimation>
       </div>
@@ -205,10 +236,14 @@ const getTweetList= async () => {
       <ScrollAnimation  animateIn='bounceInRight' duration={2.5} animateOnce={true}>
       
      
-      
-     <div>
+
+
+    <div style={{flexDirection:"row"}}>
+    {renderWordCloud()}   
+      <Draggable style={{"display":"inline","float":"left"}}>
+      <div>
       <Fab
-        mainButtonStyles={{borderColor:"white",backgroundColor: '#1f5156',bottom: 24, right: 24}}
+        mainButtonStyles={{borderColor:"white",backgroundColor: '#1f5156'}}
         
         alwaysShowTitle={true}
         icon={ <MDBIcon icon="compress-arrows-alt" className="white-text" />} 
@@ -217,27 +252,30 @@ const getTweetList= async () => {
         text="Combined"
         onClick={ () =>SetwordCloudState("0")} 
         icon={ <MDBIcon icon="compress-arrows-alt" className="white-text"/>}
-        style={{backgroundColor: '#1f5156' ,bottom: 24, right: 24}}
+        style={{backgroundColor: '#1f5156' }}
         >
           {<MDBIcon fab  size="2x" icon="staylinked" className="white-text"/>}
         </Action>
         <Action
             text="Positive"
             onClick={() =>SetwordCloudState("1")}
-            style={{backgroundColor: '#1f5156', bottom: 24, right: 24 }}
+            style={{backgroundColor: '#1f5156' }}
         >
           {<MDBIcon far icon="smile" size="2x" className="white-text" />}
         </Action>
         <Action
             text="Negative"
             onClick={() => SetwordCloudState("-1")}
-            style={{backgroundColor: '#1f5156', bottom: 24, right: 24}}
+            style={{backgroundColor: '#1f5156'}}
         >
           <MDBIcon far icon="frown"  size="2x" className="white-text" />
         </Action>
       </Fab>
+      </div>
+      </Draggable>
+ 
       
-      {renderWordCloud()}
+      
       </div>
       
       </ScrollAnimation>
@@ -251,12 +289,15 @@ const getTweetList= async () => {
       
      
       </ScrollAnimation>
+    
+
       <ScrollAnimation  animateIn='bounceInRight' duration={2.5} animateOnce={true}>
-        
       <div className="carousel-wrapper">
-      <Carousel  transitionMs={1000} stopOnHover itemsToShow={3} itemPadding={[10, 50]} isRTL={true} enableAutoPlay={true} autoPlaySpeed={6000} >
-      {tweetList.map(tweet => <Tweet key= {tweet.text} text={tweet.text} sentiment={tweet.sentiment} score={tweet.score.toFixed(2)}  />)}
-      </Carousel>
+      <Slider {...settings} >
+        
+      {renderTweets()}
+      
+      </Slider >
       </div>
       </ScrollAnimation>
   
@@ -265,7 +306,7 @@ const getTweetList= async () => {
   }
   }
 
-  
+  const renderTweets = () => tweetList.map(tweet => (<Tweet key= {tweet.text} text={tweet.text} sentiment={tweet.sentiment} score={tweet.score.toFixed(2)} url={tweet.URL}  />));
   const renderWordCloud = () =>{
     if(wordsSet)
     {

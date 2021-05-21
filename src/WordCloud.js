@@ -2,7 +2,7 @@ import React, { Component} from 'react';
 import "d3-transition";
 import { select } from "d3-selection";
 import ReactWordcloud from "react-wordcloud";
-import style from './result.module.scss';
+import style from './result.module.css';
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
 import { MDBAnimation } from "mdbreact";
@@ -50,8 +50,8 @@ function getCallback(callback) {
     colors: ["white"],
     enableTooltip: true,
     deterministic: true,
-    fontFamily: "impact",
-    fontSizes: [30, 60],
+    fontFamily: "OCR A",
+    fontSizes: [30, 60],  
     fontStyle: "normal",
     fontWeight: "normal",
     padding: 5,
@@ -88,7 +88,7 @@ function getCallback(callback) {
     else
     return(
       <div className={style.cloudContainer}>
-        <WaveTopBottomLoading color="#1f5156" size="large" />
+        <WaveTopBottomLoading color="white" size="large" />
       </div>
     )
 

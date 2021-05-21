@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import style from './result.module.scss'
+import style from './result.module.css'
 import {MDBAnimation } from "mdbreact";
 
 

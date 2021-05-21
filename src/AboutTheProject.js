@@ -1,6 +1,6 @@
 import React from "react";
 import {  MDBRow, MDBCol, MDBCard, MDBCardBody, MDBMask, MDBIcon, MDBView, MDBContainer  } from "mdbreact";
-import style from './aboutUs.module.scss';
+import style from './aboutUs.module.css';
 import ScrollAnimation from 'react-animate-on-scroll';
 import Particles from 'react-particles-js';
 import particlesConfig from './config/particlesConfig';

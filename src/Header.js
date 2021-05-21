@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav'
 import logo from './resources/logo.svg';
 import githubLogo from './resources/GitHub-Mark-Light-32px.png';
 import {LinkContainer} from 'react-router-bootstrap';
-import style from './result.module.scss'
+import style from './result.module.css'
 
 
 

@@ -6,7 +6,7 @@ import particlesConfig from './config/particlesConfig';
 import saghi from "./resources/saghi.jfif"
 import or from "./resources/or.jfif"
 import ilan from "./resources/ilan.jpg"
-import style from './aboutUs.module.scss';
+import style from './aboutUs.module.css';
 import 'font-awesome/css/font-awesome.min.css';
 
 const AboutUs = () => {
@@ -19,6 +19,7 @@ return (
 
      <MDBAnimation type="fadeInRightBig" delay=".3s">
     <MDBCard className={style.aboutUs}>
+    
         <MDBCardBody  >
           <h2 className="h1-responsive font-weight-bold my-5">
             צוות הפרוייקט

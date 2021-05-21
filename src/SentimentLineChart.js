@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import moment from 'moment';
-import style from './result.module.scss';
+import style from './result.module.css';
 
 const CustomizedNegDot = (props) => {
   const { cx, cy, stroke, payload, value } = props;
