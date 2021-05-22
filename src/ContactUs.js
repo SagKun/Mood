@@ -2,35 +2,35 @@ import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon, MDBInput,MDBAnimation } from 'mdbreact';
 import style from "./aboutUs.module.css"
 
+
 const ContactUs = () => {
 return (
-  <MDBAnimation type="fadeInRightBig" delay=".3s">
+ 
   <div className={style.contactUs}>
   <MDBContainer >
   <MDBRow className={style.form}>
     <MDBCol className={style.form} md="6">
       <form className={style.form} >
-        <p className="h3 text-center mb-4">Write to Us</p>
-        <div className="grey-text">
-          <MDBInput  label="Your name" icon="user" group type="text" validate error="wrong"
+        <p style={{color: "white"}}className="h3 text-center mb-4">Write to Us</p>
+        <div className="white-text">
+          <MDBInput required style={{color: "white"}} label="Your name" icon="user" group type="text" validate error="wrong"
             success="right" />
-          <MDBInput label="Your email" icon="envelope" group type="email" validate error="wrong"
+          <MDBInput required style={{color: "white"}} className={style.input} label="Your email" icon="envelope" group type="email" validate error="wrong"
             success="right" />
-          <MDBInput label="Subject" icon="tag" group type="text" validate error="wrong" success="right" />
-          <MDBInput type="textarea" rows="2" label="Your message" icon="pencil-alt" />
+          <MDBInput required style={{color: "white"}} label="Subject" icon="tag" group type="text" validate error="wrong" success="right" />
+          <MDBInput required style={{color: "white"}} type="textarea" rows="2" label="Your message" icon="pencil-alt" />
         </div>
+        <br></br>
         <div className="text-center">
-          <MDBBtn outline color="primary">
-            Send
-            <MDBIcon far icon="paper-plane" className="ml-1" />
-          </MDBBtn>
+        <button className= {style.button}  type="submit">Send</button>
         </div>
+       
       </form>
+     
     </MDBCol>
   </MDBRow>
 </MDBContainer>
   </div>
-  </MDBAnimation>
 
 );
 };

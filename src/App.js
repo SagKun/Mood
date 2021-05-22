@@ -5,7 +5,7 @@ import "./App.css"
 import { Resizable } from "re-resizable";
 import SentimentLineChart from "./SentimentLineChart"
 import { BoxLoading } from 'react-loadingg';
-import Particles from 'react-particles-js';
+
 import particlesConfig from './config/particlesConfig';
 import {MDBAnimation } from "mdbreact";
 import WordCloud from './WordCloud';
@@ -24,8 +24,7 @@ import logo from './resources/tabLogo.png';
 import { MDBIcon } from 'mdb-react-ui-kit';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-
-
+import Particles from './Particles'
 
 const App = () => {
   const initialRender = useRef(true);
@@ -71,7 +70,8 @@ const App = () => {
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
-            initialSlide: 1
+            initialSlide: 1,
+            rows: 1
           }
         }
         
@@ -197,20 +197,19 @@ const getTweetList= async () => {
     
     if (loading) {
       return <div>
-        <div>
+        <div style={{marginBot: "20px"}}>
         <BoxLoading color="#1f5156" size="large" />
         </div>
-        <br></br>
-        <br></br>
+        
+        <div style={{marginBot: "20px"}} className={style.factStyle}>
         <MDBAnimation type="bounce" infinite duration="2s" >
-        <div className={style.factStyle}>
+       
         <p className="grey-text w-responsive mx-auto mb-5">מחפשים תוצאות..</p>
-        </div>
+       
         </MDBAnimation>
+        </div>
         
         <div  className={style.factStyle}>
-        
-       
         <RandomFact/>
         
         </div>
@@ -223,6 +222,7 @@ const getTweetList= async () => {
       return <div>
       <div>
       <MDBAnimation type="fadeInRight" delay="0.2s">
+     
       <QueryResult
       key= {tweetquery}
       query={tweetquery}
@@ -230,9 +230,13 @@ const getTweetList= async () => {
       sentiment={sentiment}
       number={tweetList.length}
       />
+     
       </MDBAnimation>
       </div>
-      
+     
+       
+      <Particles style={{height:"20vw"}}/>
+
       <ScrollAnimation  animateIn='bounceInRight' duration={2.5} animateOnce={true}>
       
      
@@ -277,6 +281,9 @@ const getTweetList= async () => {
       
       
       </div>
+
+        
+       <Particles   style={{height:"20vw"}}/>
       
       </ScrollAnimation>
 
@@ -290,6 +297,8 @@ const getTweetList= async () => {
      
       </ScrollAnimation>
     
+      
+      <Particles style={{height:"20vw"}}/>
 
       <ScrollAnimation  animateIn='bounceInRight' duration={2.5} animateOnce={true}>
       <div className="carousel-wrapper">
@@ -300,6 +309,8 @@ const getTweetList= async () => {
       </Slider >
       </div>
       </ScrollAnimation>
+        
+  <Particles style={{height:"30vw"}} />
   
       </div>;
     }
@@ -346,13 +357,13 @@ const getTweetList= async () => {
   
   <br></br><br></br>
   <div className="App">
- 
+  
   <form onSubmit = {getSearch} className="search-form">
     <input className= "search-bar"  style={{textAlign: 'right'}} type="text" value={search} onChange={updateSearch}/>
     <button className= "search-button"  type="submit">חיפוש</button>   
   </form>
   
-  
+  <Particles style={{height:window.innerHeight}}/>
   
   {renderLoadingOrResults()}
   

@@ -18,6 +18,7 @@ class QueryResult extends React.Component{
     return <div   className={this.props.sentiment==="Positive"? style.positiveResult : style.negativeResult}>
         <br />
         <br />  
+        <Typing speed={10}>
             <h1  className={style.orcaText}>{searched} </h1> 
             <h1  className={style.orcaText}>{this.props.query}</h1> 
         <br />
@@ -37,6 +38,7 @@ class QueryResult extends React.Component{
             <h1 className={style.orcaText}>{ this.props.avg*100+ "%"}</h1>
         <br />
         <br />
+        </Typing>
         </div>
        
         

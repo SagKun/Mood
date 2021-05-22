@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import {Link , NavLink } from "react-router-dom";
 import "./NavBar.css";
 import Logo from './resources/logoSmaller.svg'
-
+import { MDBIcon } from 'mdb-react-ui-kit';
+import 'font-awesome/css/font-awesome.min.css';
 function NavBar() {
   const [click, setClick] = useState(false);
 
@@ -59,6 +60,15 @@ function NavBar() {
               >
                 צור קשר
               </NavLink>
+            </li>
+            <li className="nav-item">
+            <div>
+            
+            <a  href="https://github.com/SagKun/Mood" className="p-2 fa-lg">
+           
+            <MDBIcon   fab icon="github" className="white-text"  size="lg"/>  
+            </a>
+            </div>
             </li>
           </ul>
           <div className="nav-icon" onClick={handleClick}>

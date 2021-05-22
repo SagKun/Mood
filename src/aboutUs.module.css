@@ -12,6 +12,7 @@
     vertical-align:middle;
     text-align: center;
     padding-bottom: 50px;
+    background:#1f5156;
 }
 
 .contactUs{
@@ -22,26 +23,26 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: 40%;
+    width:60%;
     margin-top: 10vw; 
     margin-bottom: 5vw; 
     margin-left:auto;
     margin-right:auto;  
     vertical-align:middle;
     padding: 50px;
+    background:#1f5156;
     
 }
 
 .form{
-    display: flex;
-    margin-left:auto;
-    margin-right:auto; 
+
     align-items: center;
     width: 100%;
-    display: flex;
     flex-direction: column;
-    justify-content: space-around;
+   
 }
+
+
 
 .aboutTheProject{
     border-radius:10px;
@@ -58,6 +59,8 @@
     vertical-align:middle;
     text-align: center;
     padding-bottom: 50px;
+    background:#1f5156;
+
     
 }
 
@@ -68,6 +71,16 @@
     
 }
 
+.button{
+    background: white;
+    border:none;
+    padding:10px 20px;
+    margin-right: 5px;
+    color:#1f5156;
+    border-radius: 5px;
+    box-shadow: 0px 1px 2px gray;
+  }
+
 .blueText{
     color: #4285F4  ;
 }
@@ -77,3 +90,5 @@
     padding: 50px;
     justify-content: space-around;
 }
+
+
