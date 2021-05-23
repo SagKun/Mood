@@ -235,7 +235,7 @@ const getTweetList= async () => {
       </div>
      
        
-      <Particles style={{height:"20vw"}}/>
+      
 
       <ScrollAnimation  animateIn='bounceInRight' duration={2.5} animateOnce={true}>
       
@@ -283,7 +283,7 @@ const getTweetList= async () => {
       </div>
 
         
-       <Particles   style={{height:"20vw"}}/>
+    
       
       </ScrollAnimation>
 
@@ -297,8 +297,7 @@ const getTweetList= async () => {
      
       </ScrollAnimation>
     
-      
-      <Particles style={{height:"20vw"}}/>
+    
 
       <ScrollAnimation  animateIn='bounceInRight' duration={2.5} animateOnce={true}>
       <div className="carousel-wrapper">
@@ -310,7 +309,7 @@ const getTweetList= async () => {
       </div>
       </ScrollAnimation>
         
-  <Particles style={{height:"30vw"}} />
+ 
   
       </div>;
     }
@@ -363,7 +362,7 @@ const getTweetList= async () => {
     <button className= "search-button"  type="submit">חיפוש</button>   
   </form>
   
-  <Particles style={{height:window.innerHeight}}/>
+  
   
   {renderLoadingOrResults()}
   

@@ -5,7 +5,8 @@
     box-shadow: 0px 5px 20px gray;
     background-color: white;
     padding: 50px;
-   
+    margin-top: 30vw;
+    margin-bottom: 30vw;
     height:700px; 
 }
 
@@ -14,7 +15,7 @@
 .positiveResult{
     box-shadow: 0px 5px 20px gray;
     width: 100%;
-  
+    margin-top: 10vw;
     min-height: 200px;
     padding: 50px;
     background-color:#35561f;
@@ -31,6 +32,7 @@
     background-color: #56241f;
     align-items: center;
     text-align: center;
+    margin-top: 10vw;
     
 }
 
@@ -100,7 +102,7 @@
     box-shadow: 0px 5px 20px gray;
     width: 100%;
     min-height: 200px;
-    
+    margin-top: 20vw; 
     background-color: #1f5156;
     text-align: center;
     padding: 10px;    
@@ -111,7 +113,7 @@
     box-shadow: 0px 5px 20px gray;
     width: 100%;
     min-height: 200px;
-    
+    margin-top: 20vw; 
     background-color: #56241f;
     text-align: center;
     padding: 10px;    
@@ -121,7 +123,7 @@
     box-shadow: 0px 5px 20px gray;
     width: 100%;
     min-height: 200px;
-  
+    margin-top: 20vw;
     background-color: #35561f;
     text-align: center;
     padding: 10px;    
