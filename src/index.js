@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import './App.css';
-
+import ParticlesBg from 'particles-bg'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -22,6 +22,10 @@ import NavBar from "./NavBar";
 ReactDOM.render(
   <React.StrictMode>
   <Router>
+  <div className="particles">
+  <ParticlesBg num= {[80]} type="cobweb" color={"#1f5156"} bg={true}  />
+</div>
+  
  <NavBar/>
  <Switch>
   <Route exact path="/" component={App} />

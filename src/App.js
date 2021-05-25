@@ -2,29 +2,21 @@ import React,{useEffect,useRef,useState,useLayoutEffect} from 'react';
 import QueryResult from './QueryResult'
 import Draggable from 'react-draggable';
 import "./App.css"
-import { Resizable } from "re-resizable";
 import SentimentLineChart from "./SentimentLineChart"
 import { BoxLoading } from 'react-loadingg';
-
-import particlesConfig from './config/particlesConfig';
-import {MDBAnimation } from "mdbreact";
 import WordCloud from './WordCloud';
 import Tweet from './Tweet'
 import 'font-awesome/css/font-awesome.min.css';
-import style from './result.module.css';
 import RandomFact from './RandomFact'
-import splitIcon from './resources/split.png'
 import { Fab, Action } from 'react-tiny-fab';
 import 'react-tiny-fab/dist/styles.css';
 import Slider from "react-slick";
-import SearchBar from "material-ui-search-bar";
-import Carousel from 'react-elastic-carousel';
 import ScrollAnimation from 'react-animate-on-scroll';
-import logo from './resources/tabLogo.png';
 import { MDBIcon } from 'mdb-react-ui-kit';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import Particles from './Particles'
+
+
 
 const App = () => {
   const initialRender = useRef(true);
@@ -43,6 +35,8 @@ const App = () => {
   const[wordCloudState,SetwordCloudState]=useState("0");
   const [size, setSize] = useState([0, 0]);
   
+  
+
   const settings = {
       dots: true,
       autoplay:true,
@@ -53,6 +47,8 @@ const App = () => {
       autoplay: true,
       autoplaySpeed: 2000,
       pauseOnHover: true,
+      rtl:true,
+      className:  'react__slick__slider__parent',
       accessibility: true,
       rows: 2,
       responsive: [
@@ -196,23 +192,15 @@ const getTweetList= async () => {
   const renderLoadingOrResults = () => {
     
     if (loading) {
-      return <div>
-        <div style={{marginBot: "20px"}}>
-        <BoxLoading color="#1f5156" size="large" />
+      return <div >
+        <div >
+        <BoxLoading  color="#1f5156" size="large" />
         </div>
         
-        <div style={{marginBot: "20px"}} className={style.factStyle}>
-        <MDBAnimation type="bounce" infinite duration="2s" >
-       
-        <p className="grey-text w-responsive mx-auto mb-5">מחפשים תוצאות..</p>
-       
-        </MDBAnimation>
+        <div style={{marginTop:"200px"}}>
+        <RandomFact style={{padding:"20px"}}/>
         </div>
-        
-        <div  className={style.factStyle}>
-        <RandomFact/>
-        
-        </div>
+
       </div> 
     } else{
       if(query==="")
@@ -220,8 +208,9 @@ const getTweetList= async () => {
       else
       {
       return <div>
-      <div>
-      <MDBAnimation type="fadeInRight" delay="0.2s">
+      <div className="result-wrapper">
+      <div className="result-backgorund">
+      <ScrollAnimation  animateIn='fadeIn' duration={2} animateOnce={true}> 
      
       <QueryResult
       key= {tweetquery}
@@ -231,13 +220,14 @@ const getTweetList= async () => {
       number={tweetList.length}
       />
      
-      </MDBAnimation>
+     </ScrollAnimation>
+      </div>
       </div>
      
        
       
 
-      <ScrollAnimation  animateIn='bounceInRight' duration={2.5} animateOnce={true}>
+      <ScrollAnimation  animateIn='fadeIn' duration={2} animateOnce={true}>
       
      
 
@@ -287,7 +277,7 @@ const getTweetList= async () => {
       
       </ScrollAnimation>
 
-      <ScrollAnimation  animateIn='bounceInRight' duration={2.5} animateOnce={true}>
+      <ScrollAnimation  animateIn='fadeIn' duration={2} animateOnce={true}>
 
       
       
@@ -299,7 +289,7 @@ const getTweetList= async () => {
     
     
 
-      <ScrollAnimation  animateIn='bounceInRight' duration={2.5} animateOnce={true}>
+      <ScrollAnimation  animateIn='fadeIn' duration={2} animateOnce={true}>
       <div className="carousel-wrapper">
       <Slider {...settings} >
         
@@ -356,13 +346,14 @@ const getTweetList= async () => {
   
   <br></br><br></br>
   <div className="App">
+    
   
   <form onSubmit = {getSearch} className="search-form">
-    <input className= "search-bar"  style={{textAlign: 'right'}} type="text" value={search} onChange={updateSearch}/>
+    <input className= "search-bar" placeholder="חפש חברה, אישיות, יישות, מותג, מקום או כל דבר שמעניין אותך..." style={{textAlign: 'right'}} type="text" value={search} onChange={updateSearch}/>
     <button className= "search-button"  type="submit">חיפוש</button>   
   </form>
   
-  
+ 
   
   {renderLoadingOrResults()}
   

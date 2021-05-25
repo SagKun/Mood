@@ -22,19 +22,17 @@ const AboutTheProject = () => {
        
      <br></br>
      <br></br>
-    <ScrollAnimation  animateIn='bounceInRight' duration={2.5} animateOnce={true}>
+    <ScrollAnimation  animateIn='fadeIn' duration={1} animateOnce={true}>
     <MDBCard   style={{background:"#1f5156"}}   className={style.aboutTheProject}>
       <MDBCardBody>
-        <h2 style={{color: "white"}} className="h2-responsive font-weight-bold text-center my-5">
-        מה האפליקציה עושה?
-        </h2>
-        <p style={{color: "white"}} className="text-center w-responsive mx-auto mb-5">
-         
-        </p>
+        
+        
         <MDBRow>
           
           <MDBCol lg="7">
-           
+          <h2 style={{color: "white"}} className="h2-responsive font-weight-bold text-center my-5">
+        מה האפליקציה עושה?
+        </h2>
             <h5 style={{color: "white"}} className="h4-responsive font-weight-normal text-center my-5">
             Mood הוא מנוע חיפוש חינמי בעברית, אשר מנתח סנטימנט(רגש) ברשת .
 בעבור ביטוי, המנוע יאחזר מהטוויטר כמות רבה של ציוצים הכוללים את הביטוי הרלוונטי ולאחר מכן יבצע סיווג בעזרת אלגוריתם בעבור כל ציוץ ויזהה את הסנטימנט שמובע בציוץ.
@@ -44,7 +42,7 @@ const AboutTheProject = () => {
           </MDBCol>
           <MDBCol lg="5" className="h4-responsive font-weight-bold text-center my-5">
             
-              <img className="rounded z-depth-2 mb-lg-0 mb-4" hover waves
+              <img style={{borderRadius:"20px"}}
                 className="img-fluid"
                 src={searchImg}
                 alt=""
@@ -62,35 +60,33 @@ const AboutTheProject = () => {
     <br></br>
     <br></br>
 
-    <ScrollAnimation  animateIn='bounceInRight' duration={2.5} animateOnce={true}>
+    <ScrollAnimation  animateIn='fadeIn' duration={1} animateOnce={true}>
     <MDBCard style={{background:"#1f5156"}} className={style.aboutTheProject}>
       <MDBCardBody>
-        <h2 style={{color: "white"}} className="h2-responsive font-weight-bold text-center my-5">
+       
+        <MDBRow>
+        <MDBCol lg="5" className="h4-responsive font-weight-bold text-center my-5">
+   
+   <img style={{borderRadius:"20px"}}
+     className="img-fluid"
+     src={uniqueImg}
+     alt=""
+   />
+   <a href="#!">
+     <MDBMask overlay="white-slight" />
+   </a>
+</MDBCol>
+          <MDBCol lg="7">
+          <h2 style={{color: "white"}} className="h2-responsive font-weight-bold text-center my-5">
         מה האפליקציה מציעה?
         </h2>
-        <p className="text-center w-responsive mx-auto mb-5">
-         
-        </p>
-        <MDBRow>
-          
-          <MDBCol lg="7">
-           
+       
             <h4 style={{color: "white"}} className="h4-responsive font-weight-normal text-center my-5">
             האפליקציה מנגישה את הדאטה הרב שנצבר ברשתות החברתיות על מנת לזהות את תחושות הציבור הישראלי ואת המגמות השונות. Mood ייחודי בכך שהוא פתוח וחינמי ומציע לציבור הרחב כלי חזק להבנת תחושות ברשת והפקת תובנות מהן.
             </h4>
                
           </MDBCol>
-          <MDBCol lg="5" className="h4-responsive font-weight-bold text-center my-5">
-   
-              <img className="rounded z-depth-2 mb-lg-0 mb-4" hover waves
-                className="img-fluid"
-                src={uniqueImg}
-                alt=""
-              />
-              <a href="#!">
-                <MDBMask overlay="white-slight" />
-              </a>
-          </MDBCol>
+          
         </MDBRow>
       </MDBCardBody>
     </MDBCard>
@@ -100,26 +96,24 @@ const AboutTheProject = () => {
     <br></br>
     <br></br>
     <br></br>
-    <ScrollAnimation  animateIn='bounceInRight' duration={3} animateOnce={true}>
+    <ScrollAnimation  animateIn='fadeIn' duration={1} animateOnce={true}>
     <MDBCard style={{background:"#1f5156"}} className={style.aboutTheProject}>
       <MDBCardBody>
-        <h2 style={{color: "white"}} className="h2-responsive font-weight-bold text-center my-5">
-        איך עשינו את זה?
-        </h2>
-        <p className="text-center w-responsive mx-auto mb-5">
-         
-        </p>
+        
+        
         <MDBRow>
           
           <MDBCol lg="7">
-           
+          <h2 style={{color: "white"}} className="h2-responsive font-weight-bold text-center my-5">
+        איך עשינו את זה?
+        </h2>
             <h4 style={{color: "white"}} className="h4-responsive font-weight-normal text-center my-5">
             עמלנו רבות על מנת לאסוף אוסף טוויטים נרחב בשפה העברית הכולל תיוג של כל ציוץ לחיובי או שלילי, כדי לאמן מודל סיווג טקסט המבוסס על רשת נוירונים  שיודע לסווג בצורה איכותית כל ציוץ לרגש חיובי או שלילי.             </h4>
                
           </MDBCol>
           <MDBCol lg="5" className="h4-responsive font-weight-bold text-center my-5">
          
-              <img className="rounded z-depth-2 mb-lg-0 mb-4" 
+              <img style={{borderRadius:"20px"}}
                 className="img-fluid"
                 src={nnImage}
                 alt=""
@@ -135,8 +129,8 @@ const AboutTheProject = () => {
     </ScrollAnimation>
 
 
-    <ScrollAnimation  animateIn='bounceInRight' duration={3} animateOnce={true}>
-    <MDBCard style={{background:"#1f5156"}} className={style.aboutTheProject}>
+    <ScrollAnimation  animateIn='fadeIn' duration={1}  animateOnce={true}>
+    <MDBCard style={{background:"#1f5156"}} className={style.tech}>
       <MDBCardBody style={{width: "100%"}}>
         <h1 style={{color: "white"}} className="h1-responsive font-weight-bold text-center my-5">
           טכנולוגיות        

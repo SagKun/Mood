@@ -14,7 +14,12 @@
     padding-bottom: 50px;
     background:#1f5156;
 }
-
+.row{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
 .contactUs{
    
     border-radius:10px;
@@ -45,15 +50,32 @@
 
 
 .aboutTheProject{
+    
+    box-shadow: 0px 5px 20px gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20vw; 
+    margin-left:auto;
+    margin-right:auto;  
+    vertical-align:middle;
+    text-align: center;
+    padding-bottom: 50px;
+    background:#1f5156;
+
+    
+}
+
+.tech{
     border-radius:10px;
     box-shadow: 0px 5px 20px gray;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: 80%;
-    margin-top: 10vw; 
-    margin-bottom: 5vw; 
+    width: 100%;
     margin-left:auto;
     margin-right:auto;  
     vertical-align:middle;

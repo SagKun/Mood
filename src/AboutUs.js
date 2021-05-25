@@ -17,7 +17,7 @@ return (
      <br></br>
      <div>
 
-     <MDBAnimation type="fadeInRightBig" delay=".3s">
+     <MDBAnimation type="fadeIn">
     <MDBCard style={{background:"#1f5156"}} className={style.aboutUs}>
     
         <MDBCardBody  >
