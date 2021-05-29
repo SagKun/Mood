@@ -15,7 +15,7 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import { MDBIcon } from 'mdb-react-ui-kit';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-
+import SentimentPieChart from "./SentimentPieChart"
 
 
 const App = () => {
@@ -45,7 +45,7 @@ const App = () => {
       slidesToShow: 4,
       slidesToScroll: 4,
       autoplay: true,
-      autoplaySpeed: 2000,
+      autoplaySpeed: 6000,
       pauseOnHover: true,
       rtl:true,
       className:  'react__slick__slider__parent',
@@ -89,6 +89,7 @@ const App = () => {
     if (initialRender.current) {
       initialRender.current = false;
       setLoading(false);
+      setWordsSet(false);
     } else {
     getQuery();
     }
@@ -208,9 +209,10 @@ const getTweetList= async () => {
       else
       {
       return <div>
-      <div className="result-wrapper">
-      <div className="result-backgorund">
       <ScrollAnimation  animateIn='fadeIn' duration={2} animateOnce={true}> 
+      <div className="flex-container">
+      <div className="child">
+    
      
       <QueryResult
       key= {tweetquery}
@@ -220,13 +222,23 @@ const getTweetList= async () => {
       number={tweetList.length}
       />
      
-     </ScrollAnimation>
-      </div>
-      </div>
      
-       
+      </div>
+      <div style={{background: `${sentiment==="Positive"? "#35561f":"#56241f"}`}} className="child">
+      <SentimentPieChart 
+         
       
-
+          data = { sentiment==="Positive"?
+                    [ { name: 'חיובי', value: parseFloat(avg).toFixed(2)*100},
+                    { name: 'שלילי', value: 100-parseFloat(avg).toFixed(2)*100 },
+                    ] : [ { name: 'חיובי', value:100- parseFloat(avg).toFixed(2)*100},
+                    { name: 'שלילי', value: parseFloat(avg).toFixed(2)*100 },
+                    ]}
+          />
+      </div>
+      </div>
+      </ScrollAnimation>
+     
       <ScrollAnimation  animateIn='fadeIn' duration={2} animateOnce={true}>
       
      
@@ -250,19 +262,20 @@ const getTweetList= async () => {
         >
           {<MDBIcon fab  size="2x" icon="staylinked" className="white-text"/>}
         </Action>
-        <Action
-            text="Positive"
-            onClick={() =>SetwordCloudState("1")}
-            style={{backgroundColor: '#1f5156' }}
-        >
-          {<MDBIcon far icon="smile" size="2x" className="white-text" />}
-        </Action>
+        
         <Action
             text="Negative"
             onClick={() => SetwordCloudState("-1")}
             style={{backgroundColor: '#1f5156'}}
         >
           <MDBIcon far icon="frown"  size="2x" className="white-text" />
+        </Action>
+        <Action
+            text="Positive"
+            onClick={() =>SetwordCloudState("1")}
+            style={{backgroundColor: '#1f5156' }}
+        >
+          {<MDBIcon far icon="smile" size="2x" className="white-text" />}
         </Action>
       </Fab>
       </div>
@@ -311,13 +324,19 @@ const getTweetList= async () => {
     if(wordsSet)
     {
       if(wordCloudState === "1")
-    {
-      
-      return <WordCloud words={posWords} state={wordCloudState} style={wordsSet}/>;}
-    else if(wordCloudState === "-1")
-      return <WordCloud words={negWords} state={wordCloudState} style={wordsSet}/>;
-    else return <WordCloud words={words} state={wordCloudState} style={wordsSet}/>;
-    }
+        {
+          return <WordCloud words={posWords} state={wordCloudState} style={wordsSet}/>;
+        }
+      else if(wordCloudState === "-1")
+        {
+          return <WordCloud words={negWords} state={wordCloudState} style={wordsSet}/>;
+        }
+      else 
+        {
+          return <WordCloud words={words} state={wordCloudState} style={wordsSet}/>;
+        }
+          
+      }
     else 
     {
       return <WordCloud loading={true}/>
@@ -347,7 +366,9 @@ const getTweetList= async () => {
   <br></br><br></br>
   <div className="App">
     
-  
+
+
+
   <form onSubmit = {getSearch} className="search-form">
     <input className= "search-bar" placeholder="חפש חברה, אישיות, יישות, מותג, מקום או כל דבר שמעניין אותך..." style={{textAlign: 'right'}} type="text" value={search} onChange={updateSearch}/>
     <button className= "search-button"  type="submit">חיפוש</button>   

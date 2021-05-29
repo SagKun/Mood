@@ -1,8 +1,6 @@
 import React from "react";
 import { MDBRow, MDBCol, MDBCard, MDBCardBody,MDBAnimation } from "mdbreact";
 import { MDBIcon } from 'mdb-react-ui-kit';
-import Particles from 'react-particles-js';
-import particlesConfig from './config/particlesConfig';
 import saghi from "./resources/saghi.jfif"
 import or from "./resources/or.jfif"
 import ilan from "./resources/ilan.jpg"
