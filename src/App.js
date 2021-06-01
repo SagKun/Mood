@@ -12,7 +12,8 @@ import { Fab, Action } from 'react-tiny-fab';
 import 'react-tiny-fab/dist/styles.css';
 import Slider from "react-slick";
 import ScrollAnimation from 'react-animate-on-scroll';
-import { MDBIcon } from 'mdb-react-ui-kit';
+import { MDBIcon} from 'mdb-react-ui-kit';
+import { MDBAnimation } from "mdbreact";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import SentimentPieChart from "./SentimentPieChart"
@@ -224,7 +225,9 @@ const getTweetList= async () => {
      
      
       </div>
-      <div style={{background: `${sentiment==="Positive"? "#35561f":"#56241f"}`}} className="child">
+     
+      <div style={{background: `${sentiment==="Positive"? "#35561f":"#56241f"}`}} className="child2">
+     
       <SentimentPieChart 
          
       
@@ -235,7 +238,9 @@ const getTweetList= async () => {
                     { name: 'שלילי', value: parseFloat(avg).toFixed(2)*100 },
                     ]}
           />
+           
       </div>
+     
       </div>
       </ScrollAnimation>
      

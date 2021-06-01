@@ -3,7 +3,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 import moment from 'moment';
 import style from './result.module.css';
 
-const CustomizedNegDot = (props) => {
+const CustomizedPosDot = (props) => {
   const { cx, cy, stroke, payload, value } = props;
 
   
@@ -19,7 +19,7 @@ const formatXAxis = tickItem => {
   return moment(tickItem).format('D MMM');
 }
 
-const CustomizedPosDot = (props) => {
+const CustomizedNegDot = (props) => {
   const { cx, cy, stroke, payload, value } = props;
 
   

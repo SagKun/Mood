@@ -13,6 +13,8 @@
 .pieChart{
     width:100%;
     height:100%;
+    align-items: center;
+    text-align: center;
 }
 
 
@@ -188,7 +190,7 @@ color:white;
 .orcaText{
     color:white;
     font-family:"OCR A";
-    font-size: 3em;
+    font-size: 2em;
     font-weight: bolder;
 }
 
@@ -212,7 +214,7 @@ color:white;
 .orcaText{
     color:white;
     font-family:"OCR A";
-    font-size: 2.5em;
+    font-size: 2em;
     font-weight: bolder;
 }
 }
@@ -224,7 +226,7 @@ color:white;
 .orcaText{
     color:white;
     font-family:"OCR A";
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: bolder;
 }
 }

@@ -80,12 +80,12 @@
 
 .particles {
 
-  width: 100%;
+width: 100%;
 top:0;
 left:0;
- height: 100%;
- z-index: -200;
- position: fixed;
+height: 100%;
+z-index: -200;
+position: fixed;
 
 }
 
@@ -93,6 +93,14 @@ left:0;
 
 .child{
   flex: 1 1 0;
+  width: 0;
+ 
+}
+
+.child2{
+  flex: 1 1 0;
+  width: 0;
+
 }
 
 
@@ -100,6 +108,13 @@ left:0;
 
 .flex-container{
   display: flex;
+  margin-top: 15vh;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+ 
 }
 
 @media screen and (max-width: 1050px) {
@@ -171,4 +186,29 @@ left:0;
     box-shadow: 0px 1px 2px gray;
     transform: scale(0.8);
   }
+}
+
+@media screen and (max-width: 700px) {
+.flex-container {
+  display: flex;
+  margin-top: 15vh;
+ 
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  }
+
+  .child{
+    flex: 1 1 0;
+    width: 100%;
+   
+  }
+  
+  .child2{
+    flex: 1 1 0;
+    width: 100%;  
+    vertical-align: top;
+  }
+
+
+
 }

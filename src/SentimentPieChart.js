@@ -42,8 +42,7 @@ render(){
 
     return(
       <div className={style.pieChart}>
-        {console.log("data is", this.props.data)}
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer>
       <PieChart >
         <Pie
           data={this.props.data}
@@ -51,9 +50,10 @@ render(){
           cy="50%"
           labelLine={false}
           label={renderCustomizedLabel}
-          outerRadius="80%"
+          outerRadius="90%"
           fill="#8884d8"
           dataKey="value"
+          isAnimationActive ={false}
         >
           {data.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
