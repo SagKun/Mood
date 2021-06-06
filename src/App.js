@@ -17,10 +17,12 @@ import { MDBAnimation } from "mdbreact";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import SentimentPieChart from "./SentimentPieChart"
-
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
 
 const App = () => {
   const initialRender = useRef(true);
+
   const[loading,setLoading] = useState([false]);
   const[tweetquery,setTweetQuery] = useState([]);
   const[avg,setAvg] = useState([]);
@@ -34,9 +36,17 @@ const App = () => {
   const[tweetList,setTweetList] = useState([]);
   const[chartData,setChartData]=useState([]);
   const[wordCloudState,SetwordCloudState]=useState("0");
+  const[timedOut,SetTimedOut]=useState(false);
   const [size, setSize] = useState([0, 0]);
-  
-  
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const [open, setOpen] = useState(false);
+
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => {setOpen(false)
+    SetTimedOut(false)};
 
   const settings = {
       dots: true,
@@ -85,6 +95,7 @@ const App = () => {
   
 
   
+  
  //this function runs everytime the page rerenders itself
   useEffect(() =>{
     if (initialRender.current) {
@@ -95,8 +106,12 @@ const App = () => {
     getQuery();
     }
   },[query]);
+
+
+
   
   const getQuery = async () => {
+    try{
     setLoading(true);
     const response =  await fetch(
       "https://europe-west3-heb-sentiment-analysis-engine.cloudfunctions.net/search-query",
@@ -121,7 +136,13 @@ const App = () => {
       getWordCloud();
       getGraph(data.id);
       SetwordCloudState("0");
-      
+    }
+    catch{
+      SetTimedOut(true);
+      setLoading(false);
+      setOpen(true);
+      setQuery("");
+    }
 };
 
 
@@ -192,7 +213,7 @@ const getTweetList= async () => {
 
 
   const renderLoadingOrResults = () => {
-    
+   
     if (loading) {
       return <div >
         <div >
@@ -202,9 +223,26 @@ const getTweetList= async () => {
         <div style={{marginTop:"200px"}}>
         <RandomFact style={{padding:"20px"}}/>
         </div>
-
       </div> 
-    } else{
+    } else if(timedOut)
+    {
+      return(
+        <div>
+        
+        <Modal open={open} onClose={onCloseModal} center >
+        <h2 style={{textAlign:"center"}}>  משהו השתבש ☹️</h2>
+        <br/>
+        <br/>
+        <p>
+          לא נמצאו תוצאות, נסה/י לחדד את החיפוש או לחפש מונח דומה עם סיכוי גבוה יותר שאנשים ידברו עליו.
+        </p>
+      </Modal>
+      </div>
+      )
+      
+      
+    }
+    else{
       if(query==="")
         return <div></div>
       else
@@ -314,7 +352,7 @@ const getTweetList= async () => {
       {renderTweets()}
       
       </Slider >
-      </div>
+      </div >
       </ScrollAnimation>
         
  
@@ -323,6 +361,9 @@ const getTweetList= async () => {
     }
   }
   }
+
+  
+  
 
   const renderTweets = () => tweetList.map(tweet => (<Tweet key= {tweet.text} text={tweet.text} sentiment={tweet.sentiment} score={tweet.score.toFixed(2)} url={tweet.URL}  />));
   const renderWordCloud = () =>{
@@ -383,8 +424,11 @@ const getTweetList= async () => {
   
   {renderLoadingOrResults()}
   
+  </div  >
+  <div className="trends-div">
+  
+
   </div>
-       
      
  
   

@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AboutUs from "./AboutUs"
 import AboutTheProject from "./AboutTheProject"
-import Header from "./Header"
+
 import ContactUs from "./ContactUs"
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';

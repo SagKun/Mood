@@ -13,7 +13,7 @@ import { WaveTopBottomLoading} from 'react-loadingg';
 class WordCloud extends React.Component{
 
 shouldComponentUpdate(nextProps, nextState) {
-  return this.props.words != nextProps.words && this.props.state != nextProps.state;
+  return this.props.words != nextProps.words || this.props.state != nextProps.state;
 }
 
 render(){

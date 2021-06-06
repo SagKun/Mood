@@ -45,7 +45,7 @@ const getRandomFacts = () => {
 
   return (
     <div className={style.factStyle2}>
-       {getRandomFacts}
+      
       
        <MDBAnimation type="bounceInRight"  >
       <p className="grey-text w-responsive mx-auto mb-5">{randomFact}</p>
