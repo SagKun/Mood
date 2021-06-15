@@ -27,7 +27,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 
 
 
-class SentimentPieChart extends PureComponent{
+class SentimentPieChart extends React.Component{
 
   shouldComponentUpdate(nextProps, nextState) {
     return this.props.data != nextProps.data;

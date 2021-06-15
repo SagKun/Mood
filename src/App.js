@@ -3,7 +3,7 @@ import QueryResult from './QueryResult'
 import Draggable from 'react-draggable';
 import "./App.css"
 import SentimentLineChart from "./SentimentLineChart"
-import { BoxLoading } from 'react-loadingg';
+import { BoxLoading,CoffeeLoading  } from 'react-loadingg';
 import WordCloud from './WordCloud';
 import Tweet from './Tweet'
 import 'font-awesome/css/font-awesome.min.css';
@@ -19,7 +19,8 @@ import "slick-carousel/slick/slick-theme.css";
 import SentimentPieChart from "./SentimentPieChart"
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
-
+import Trends from  './Trends'
+import { TrendingUpTwoTone, TurnedInRounded } from '@material-ui/icons';
 const App = () => {
   const initialRender = useRef(true);
 
@@ -30,7 +31,9 @@ const App = () => {
   const[search,setSearch] = useState('');
   const[query,setQuery] = useState("");
   const[words,setWords] = useState([]);
+  const[trends,setTrends] = useState([]);
   const[wordsSet,setWordsSet] = useState(false);
+  const[loadingTrends,setLoadingTrends] = useState(true);
   const[negWords,setNegativeWords] = useState([]);
   const[posWords,setPositiveWords] = useState([]);
   const[tweetList,setTweetList] = useState([]);
@@ -99,6 +102,7 @@ const App = () => {
  //this function runs everytime the page rerenders itself
   useEffect(() =>{
     if (initialRender.current) {
+      getTrends();
       initialRender.current = false;
       setLoading(false);
       setWordsSet(false);
@@ -210,6 +214,25 @@ const getTweetList= async () => {
     setLoading(false);
 };
 
+const getTrends = async () => {
+  const response =  await fetch(
+    "https://europe-west3-heb-sentiment-analysis-engine.cloudfunctions.net/get-trends",
+    {
+      method: "POST",
+      headers: {
+        "Access-Control-Request-Method": "POST",
+        "Content-Type": "Application/JSON"
+      },
+      maxAge: 3600
+      //"mode": "cors",
+    }
+  );
+    const data = await response.json();
+    console.log(data);
+    setTrends(data.trends_list);  
+    setLoadingTrends("false");
+};
+
 
 
   const renderLoadingOrResults = () => {
@@ -244,7 +267,26 @@ const getTweetList= async () => {
     }
     else{
       if(query==="")
-        return <div></div>
+        if(loadingTrends===true)
+        {
+         return <div> <CoffeeLoading  color="#1f5156" size="large" /> </div>
+        }
+        else
+        {
+        return <div>
+          
+         
+         <Trends fn={getTrendSearch} trends={trends}/>
+
+
+     
+ 
+
+
+
+
+        </div>
+        }
       else
       {
       return <div>
@@ -401,8 +443,14 @@ const getTweetList= async () => {
   const getSearch = e => {
     e.preventDefault();
     setQuery(search);
+    console.log(search);
     setSearch("");
   }
+
+  const getTrendSearch = e => {
+    setQuery(e.currentTarget.textContent);
+  }
+
   return(
   <div>
 
@@ -425,11 +473,6 @@ const getTweetList= async () => {
   {renderLoadingOrResults()}
   
   </div  >
-  <div className="trends-div">
-  
-
-  </div>
-     
  
   
  
