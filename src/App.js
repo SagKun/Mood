@@ -3,7 +3,7 @@ import QueryResult from './QueryResult'
 import Draggable from 'react-draggable';
 import "./App.css"
 import SentimentLineChart from "./SentimentLineChart"
-import { BoxLoading,CoffeeLoading  } from 'react-loadingg';
+import { BoxLoading,CoffeeLoading   } from 'react-loadingg';
 import WordCloud from './WordCloud';
 import Tweet from './Tweet'
 import 'font-awesome/css/font-awesome.min.css';
@@ -13,14 +13,12 @@ import 'react-tiny-fab/dist/styles.css';
 import Slider from "react-slick";
 import ScrollAnimation from 'react-animate-on-scroll';
 import { MDBIcon} from 'mdb-react-ui-kit';
-import { MDBAnimation } from "mdbreact";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import SentimentPieChart from "./SentimentPieChart"
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import Trends from  './Trends'
-import { TrendingUpTwoTone, TurnedInRounded } from '@material-ui/icons';
 const App = () => {
   const initialRender = useRef(true);
 
@@ -216,20 +214,21 @@ const getTweetList= async () => {
 
 const getTrends = async () => {
   const response =  await fetch(
-    "https://europe-west3-heb-sentiment-analysis-engine.cloudfunctions.net/get-trends",
+    "https://europe-west3-heb-sentiment-analysis-engine.cloudfunctions.net/search-trends",
     {
       method: "POST",
       headers: {
         "Access-Control-Request-Method": "POST",
-        "Content-Type": "Application/JSON"
+        "Content-Type": "Application/JSON",
       },
+      body: JSON.stringify({"trends_num": 15}),
       maxAge: 3600
       //"mode": "cors",
     }
   );
     const data = await response.json();
     console.log(data);
-    setTrends(data.trends_list);  
+    setTrends(data.trends);  
     setLoadingTrends("false");
 };
 
@@ -269,7 +268,7 @@ const getTrends = async () => {
       if(query==="")
         if(loadingTrends===true)
         {
-         return <div> <CoffeeLoading  color="#1f5156" size="large" /> </div>
+         return <div> < CoffeeLoading   color="#1f5156" size="large" /> </div>
         }
         else
         {
