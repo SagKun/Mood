@@ -1,5 +1,4 @@
 import React from 'react';
-import style from './result.module.css';
 import "./Trends.css"
 
 import { MDBAnimation } from "mdbreact";

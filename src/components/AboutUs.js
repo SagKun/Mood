@@ -1,9 +1,9 @@
 import React from "react";
 import { MDBRow, MDBCol, MDBCard, MDBCardBody,MDBAnimation } from "mdbreact";
 import { MDBIcon } from 'mdb-react-ui-kit';
-import saghi from "./resources/saghi.jfif"
-import or from "./resources/or.jfif"
-import ilan from "./resources/ilan.jpg"
+import saghi from "./../resources/saghi.jfif"
+import or from "./../resources/or.jfif"
+import ilan from "./../resources/ilan.jpg"
 import style from './aboutUs.module.css';
 import 'font-awesome/css/font-awesome.min.css';
 

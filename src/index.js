@@ -7,17 +7,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import AboutUs from "./AboutUs"
-import AboutTheProject from "./AboutTheProject"
+import AboutUs from "./components/AboutUs"
+import AboutTheProject from "./components/AboutTheProject"
 
-import ContactUs from "./ContactUs"
+import ContactUs from "./components/ContactUs"
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import { formatMs } from '@material-ui/core';
-import NavBar from "./NavBar";
+import NavBar from "./components/NavBar";
 
 ReactDOM.render(
   <React.StrictMode>

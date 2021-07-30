@@ -13,14 +13,14 @@ const COLORS = ['#35561f', '#56241f'];
 const RADIAN = Math.PI / 180;
 
 
-const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index , name }) => {
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
   return (
     <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
-      {`${(percent * 100).toFixed(0)}%`}
+      {`${(percent * 100).toFixed(0)}% ${name}`}
     </text>
   );
 };
@@ -53,7 +53,9 @@ render(){
           outerRadius="90%"
           fill="#8884d8"
           dataKey="value"
+          nameKey="name"
           isAnimationActive ={false}
+          
         >
           {data.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />

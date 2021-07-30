@@ -2,18 +2,18 @@ import React from "react";
 import {  MDBRow, MDBCol, MDBCard, MDBCardBody, MDBMask, MDBIcon, MDBView, MDBContainer  } from "mdbreact";
 import style from './aboutUs.module.css';
 import ScrollAnimation from 'react-animate-on-scroll';
-import searchImg from './resources/search_image2.jfif'
-import uniqueImg from './resources/unique.jfif'
-import nnImage from './resources/nn.jfif'
-import fastTextLogo from './resources/tech/fastText.png'
-import bigQuery from './resources/tech/bigquery.png'
-import cloud from './resources/tech/cloud.png'
-import css3 from './resources/tech/css3.png'
-import functions from './resources/tech/functions.png'
-import htmlIcon from './resources/tech/html5.png'
-import javascript from './resources/tech/javascript.png'
-import python from './resources/tech/python.png'
-import react from './resources/tech/react.png'
+import searchImg from './../resources/search_image2.jfif'
+import uniqueImg from './../resources/unique.jfif'
+import nnImage from './../resources/nn.jfif'
+import fastTextLogo from './../resources/tech/fastText.png'
+import bigQuery from './../resources/tech/bigquery.png'
+import cloud from './../resources/tech/cloud.png'
+import css3 from './../resources/tech/css3.png'
+import functions from './../resources/tech/functions.png'
+import htmlIcon from './../resources/tech/html5.png'
+import javascript from './../resources/tech/javascript.png'
+import python from './../resources/tech/python.png'
+import react from './../resources/tech/react.png'
 
 
 const AboutTheProject = () => {

@@ -1,13 +1,13 @@
 import React,{useEffect,useRef,useState,useLayoutEffect} from 'react';
-import QueryResult from './QueryResult'
+import QueryResult from './components/QueryResult'
 import Draggable from 'react-draggable';
 import "./App.css"
-import SentimentLineChart from "./SentimentLineChart"
+import SentimentLineChart from "./components/SentimentLineChart"
 import { BoxLoading,CoffeeLoading   } from 'react-loadingg';
-import WordCloud from './WordCloud';
-import Tweet from './Tweet'
+import WordCloud from './components/WordCloud';
+import Tweet from './components/Tweet'
 import 'font-awesome/css/font-awesome.min.css';
-import RandomFact from './RandomFact'
+import RandomFact from './components/RandomFact'
 import { Fab, Action } from 'react-tiny-fab';
 import 'react-tiny-fab/dist/styles.css';
 import Slider from "react-slick";
@@ -15,10 +15,10 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import { MDBIcon} from 'mdb-react-ui-kit';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import SentimentPieChart from "./SentimentPieChart"
+import SentimentPieChart from "./components/SentimentPieChart"
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
-import Trends from  './Trends'
+import Trends from  './components/Trends'
 const App = () => {
   const initialRender = useRef(true);
 

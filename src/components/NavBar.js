@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {Link , NavLink } from "react-router-dom";
 import "./NavBar.css";
-import Logo from './resources/logoSmaller.svg'
+import Logo from './../resources/logoSmaller.svg'
 import { MDBIcon } from 'mdb-react-ui-kit';
 import 'font-awesome/css/font-awesome.min.css';
 function NavBar() {
