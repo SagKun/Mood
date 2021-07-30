@@ -1,22 +1,4 @@
-.bg-bubbles li {
-  position: absolute;
-  list-style: none;
-  color:white;
-  background-color: #1f5156;
-  top: 5%;
-  left:50%;
-  animation: bubble 10s linear infinite;
-  text-align:center;
-  box-shadow: 0px 3px #888888;
-  opacity:1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-wrap: break-word;
-  
 
-
- 
-}
 
 
 .bg-bubbles li:hover {
@@ -29,7 +11,182 @@
 
 
 
+.bg-bubbles {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  width: 100%;
+  height:60vh;
+ 
+  
+ 
+}
 
+.bubble-hover:hover{
+  color:green;
+}
+
+.bg-bubbles li {
+  position: absolute;
+  list-style: none;
+
+  width: 80px;
+  height: 80px;
+  border-radius: 80px;
+  color:white;
+  background-color: #1f5156;
+  top: 5%;
+  left:50%;
+  -webkit-animation: bubble 5s infinite;
+  -webkit-animation-timing-function: linear;
+  animation: bubble 10s linear infiwnite;
+  
+  text-align:center;
+  box-shadow: 0px 3px #888888;
+
+  
+  line-height: 1em; /* a */
+  max-height: 5em; 
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.bg-bubbles li:nth-child(1) {
+  top: 5%;
+  left:28%;
+  
+ 
+  -webkit-animation-delay: 700ms;
+}
+
+.bg-bubbles li:nth-child(2) {
+  
+  top: 15%;
+  left:35%;
+
+
+}
+
+.bg-bubbles li:nth-child(3) {
+  top: 35%;
+  left:30%;
+ 
+  -webkit-animation-delay: 500ms;
+}
+
+.bg-bubbles li:nth-child(4) {
+ 
+  top: 5%;
+  left:43%;
+
+}
+
+.bg-bubbles li:nth-child(5) {
+
+  top: 40%;
+  left:40%;
+}
+
+.bg-bubbles li:nth-child(6) {
+  
+  top: 25%;
+  left:47%;
+
+
+  -webkit-animation-delay: 500ms;
+}
+
+.bg-bubbles li:nth-child(7) {
+  
+  top: 45%;
+  left:50%;
+ 
+
+ 
+}
+
+.bg-bubbles li:nth-child(8) {
+ 
+  
+ 
+
+  
+  -webkit-animation-delay: 500ms;
+
+  top: 25%;
+  left:55%;
+}
+
+.bg-bubbles li:nth-child(9) {
+  
+  top: 7%;
+  left:57%;
+ 
+  
+  animation-delay: 2s;
+
+}
+
+.bg-bubbles li:nth-child(10) {
+
+  top: 50%;
+  left:60%;
+
+
+}
+
+.bg-bubbles li:nth-child(11) {
+  
+ 
+  top: 30%;
+  left:65%;
+}
+
+.bg-bubbles li:nth-child(12) {
+ 
+  top: 58%;
+  left:33%;
+
+}
+.bg-bubbles li:nth-child(13) {
+  
+  top: 5%;
+  left:65%;
+ 
+  
+}
+.bg-bubbles li:nth-child(14) {
+  
+  top: 58%;
+  left:45%;
+ 
+  
+}
+
+
+
+@-webkit-keyframes bubble {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  50% {
+    -webkit-transform: translateY(-10px) ;
+    transform: translateY(-10px);
+    -webkit-transform: translateX(10);
+    transform: translateX(10);
+  }
+  100%{
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
 
 @keyframes bubble {
   0% {
@@ -49,5 +206,299 @@
     transform: translateY(0);
     -webkit-transform: translateX(0);
     transform: translateX(0);
+  }
+}
+
+
+.bg-bubbles li:hover {
+  
+
+  animation: hover 100ms linear forwards;
+}
+
+
+@keyframes hover {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  100%{
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+}
+
+@media screen and (max-width: 1440px) {
+
+  
+
+  .bg-bubbles li {
+   
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
+    
+   
+  }
+
+  .bg-bubbles li:nth-child(1) {
+    top: 5%;
+    left:18%;
+    
+   
+    -webkit-animation-delay: 700ms;
+  }
+  
+  .bg-bubbles li:nth-child(2) {
+    
+    top: 18%;
+    left:28%;
+   
+  
+  }
+  
+  .bg-bubbles li:nth-child(3) {
+    top: 35%;
+    left:18%;
+    
+    -webkit-animation-delay: 500ms;
+  }
+  
+  .bg-bubbles li:nth-child(4) {
+   
+    top: 5%;
+    left:37%;
+    
+  }
+  
+  .bg-bubbles li:nth-child(5) {
+    
+    top: 40%;
+    left:30%;
+  }
+  
+  .bg-bubbles li:nth-child(6) {
+    
+    top: 27%;
+    left:40%;
+  
+   
+    -webkit-animation-delay: 500ms;
+  }
+  
+  .bg-bubbles li:nth-child(7) {
+    
+    top: 35%;
+    left:50%;
+    
+  
+   
+  }
+  
+  .bg-bubbles li:nth-child(8) {
+   
+    
+    
+  
+    
+    -webkit-animation-delay: 500ms;
+    
+    top: 25%;
+    left:60%;
+  }
+  
+  .bg-bubbles li:nth-child(9) {
+    
+    top: 7%;
+    left:63%;
+   
+    
+    animation-delay: 2s;
+    
+  }
+  
+  .bg-bubbles li:nth-child(10) {
+    
+    top: 50%;
+    left:65%;
+    
+  
+  }
+  
+  .bg-bubbles li:nth-child(11) {
+    
+    
+    top: 30%;
+    left:70%;
+  }
+  
+  .bg-bubbles li:nth-child(12) {
+    
+    top: 58%;
+    left:33%;
+    
+  }
+  .bg-bubbles li:nth-child(13) {
+    
+    top: 5%;
+    left:75%;
+    
+  
+  }
+  .bg-bubbles li:nth-child(14) {
+   
+    top: 58%;
+    left:50%;
+   
+    
+  }
+}
+
+
+
+
+@media screen and (max-width: 1000px) {
+ 
+
+  .bg-bubbles li {
+   
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
+    
+   
+  }
+
+
+  
+}
+
+
+@media screen and (max-width: 800px) {
+
+ 
+
+  .bg-bubbles li {
+   
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    
+    font-size: 12px;
+  }
+
+
+
+  .bg-bubbles li:nth-child(1) {
+    top: 5%;
+    left:15%;
+    color:white;
+   
+    -webkit-animation-delay: 700ms;
+  }
+  
+  .bg-bubbles li:nth-child(2) {
+    
+    top: 15%;
+    left:28%;
+   
+  
+  }
+  
+  .bg-bubbles li:nth-child(3) {
+    top: 35%;
+    left:15%;
+    
+    -webkit-animation-delay: 500ms;
+  }
+  
+  .bg-bubbles li:nth-child(4) {
+   
+    top: 5%;
+    left:37%;
+   
+  }
+  
+  .bg-bubbles li:nth-child(5) {
+    
+    top: 40%;
+    left:30%;
+  }
+  
+  .bg-bubbles li:nth-child(6) {
+    
+    top: 25%;
+    left:40%;
+  
+   
+    -webkit-animation-delay: 500ms;
+  }
+  
+  .bg-bubbles li:nth-child(7) {
+    
+    top: 40%;
+    left:50%;
+    
+  
+   
+  }
+  
+  .bg-bubbles li:nth-child(8) {
+   
+    
+   
+  
+    
+    -webkit-animation-delay: 500ms;
+    
+    top: 25%;
+    left:60%;
+  }
+  
+  .bg-bubbles li:nth-child(9) {
+    
+    top: 7%;
+    left:67%;
+   
+    
+    animation-delay: 2s;
+    
+  }
+  
+  .bg-bubbles li:nth-child(10) {
+  
+    top: 45%;
+    left:66%;
+    
+  
+  }
+  
+  .bg-bubbles li:nth-child(11) {
+    
+    
+    top: 30%;
+    left:75%;
+  }
+  
+  .bg-bubbles li:nth-child(12) {
+   
+    top: 58%;
+    left:33%;
+    
+  }
+  .bg-bubbles li:nth-child(13) {
+    
+    top: 5%;
+    left:80%;
+    
+  
+  }
+  .bg-bubbles li:nth-child(14) {
+   
+    top: 58%;
+    left:50%;
+   
+    
   }
 }
