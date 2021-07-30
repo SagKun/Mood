@@ -272,18 +272,8 @@ const getTrends = async () => {
         }
         else
         {
-        return <div>
-          
-         
+        return <div className="trends">
          <Trends fn={getTrendSearch} trends={trends}/>
-
-
-     
- 
-
-
-
-
         </div>
         }
       else

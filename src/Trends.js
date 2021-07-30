@@ -2,7 +2,7 @@ import React from 'react';
 import style from './result.module.css';
 import "./Trends.css"
 
-
+import { MDBAnimation } from "mdbreact";
 
 
 
@@ -21,14 +21,15 @@ class Trends extends React.Component{
     render(){
         
     return (
-        <div  >
- 
-        <ul  class="bg-bubbles">
-         {this.props.trends.map(trend => (<li onClick={this.props.fn}>{trend.Trend}</li>))} 
+        <MDBAnimation type="fadeIn">
+      
+        <div >
+        <ul  className="bg-bubbles">
+         {this.props.trends.map(trend => (<li onClick={this.props.fn}>{trend}</li>))} 
         </ul>
- 
-       
         </div>
+         
+        </MDBAnimation>  
     )
        
         

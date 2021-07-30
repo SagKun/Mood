@@ -21,7 +21,7 @@ import NavBar from "./NavBar";
 
 ReactDOM.render(
   <React.StrictMode>
-  <Router>
+  <Router forceRefresh>
   <div className="particles">
   <ParticlesBg num= {[80]} type="cobweb" color={"#1f5156"} bg={true}  />
 </div>
