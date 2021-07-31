@@ -9,6 +9,8 @@ const ContactUs = () => {
   const[subject,setSubject] = useState('');
   const[message,setMessage] = useState('');
   const [open, setOpen] = useState(false);
+  const [mailSuccessful, setMailSuccessful] = useState(false);
+  const [mailFailed, setMailFailed] = useState(false);
   const onCloseModal = () => (setOpen(false));
 
   function handleName(event) {
@@ -16,6 +18,11 @@ const ContactUs = () => {
        setName(event.target.value);
    
 }
+
+const resetForm = () => { 
+  document.getElementById("form").reset();
+}
+
 
 function handleEmail(event) {
  
@@ -33,11 +40,20 @@ function handleMessage(event) {
    setMessage(event.target.value);
 
 }
-const submitMail = e => {
+function submitMail (e) {
   e.preventDefault();
+  
   console.log( {"name":`${name}`,"email":`${email}`,"subject":`${subject}`,"message":`${message}`});
   sendMail();
+  setName('');
+  setEmail('');
+  setSubject('');
+  setMessage('');
 }
+
+
+
+
 
   const sendMail = async () => {
     
@@ -54,59 +70,35 @@ const submitMail = e => {
         //"mode": "cors",
       }
     );
-   
+      
       const data = await response.text();
-      setOpen(true);
       console.log("email response",data);
+      setOpen(true);
       if(response.status===200){
-        return(
-          <div>
-        <Modal  open={open} onClose={onCloseModal} center >
-          <h2 style={{textAlign:"center"}}> ההודעה שלך נשלחה בהצלחה</h2>
-          <br/>
-          <br/>
-          <p>
-            ההודעה שלך התקבלה אצלנו במערכת, נחזור אליך בהקדם.
-          </p>
-        </Modal>
-        </div>
-        )
-        
+        setMailSuccessful(true);
+      }
+      else{
+        setMailFailed(true);
       }
       
-      else{
-        return(
-          <div>
-          <Modal  open={open} onClose={onCloseModal} center>
-          <h2 style={{textAlign:"center"}}>  משהו השתבש ☹️</h2>
-          <br/>
-          <br/>
-          <p>
-            שליחת הודעה נכשלה,נסה מאוחר יותר או שלח מייל ל: hebrewsentimentaeteam@gmail.com.
-          </p>
-        </Modal>
-        </div>
-        )
-       
-      }
-     
   };
 
   return (
- 
+   
   <div className={style.contactUs}>
+   
   <MDBContainer >
   <MDBRow className={style.form}>
     <MDBCol className={style.form} md="6">
-      <form onSubmit = {submitMail} className={style.form} >
+      <form id="form" onSubmit = {submitMail} className={style.form}   >
         <p style={{color: "white"}}className="h3 text-center mb-4">Write to Us</p>
         <div className="white-text">
-          <MDBInput onInput={handleName} required style={{color: "white"}} label="Your name" icon="user" group type="text" validate error="wrong"
+          <MDBInput value={name} onInput={handleName} required style={{color: "white"}} label="Your name" icon="user" group type="text" validate error="wrong"
             success="right" />
-          <MDBInput required  onInput={handleEmail} style={{color: "white"}} className={style.input} label="Your email" icon="envelope" group type="email" validate error="wrong"
+          <MDBInput  value={email}  required  onInput={handleEmail} style={{color: "white"}} className={style.input} label="Your email" icon="envelope" group type="email" validate error="wrong"
             success="right" />
-          <MDBInput required onInput={handleSubject} style={{color: "white"}} label="Subject" icon="tag" group type="text" validate error="wrong" success="right" />
-          <MDBInput required  onInput={handleMessage} style={{color: "white"}} type="textarea" rows="2" label="Your message" icon="pencil-alt" />
+          <MDBInput value={subject}  required onInput={handleSubject} style={{color: "white"}} label="Subject" icon="tag" group type="text" validate error="wrong" success="right" />
+          <MDBInput value={message}   required  onInput={handleMessage} style={{color: "white"}} type="textarea" rows="2" label="Your message" icon="pencil-alt" />
         </div>
         <br></br>
         <div className="text-center">
@@ -118,6 +110,30 @@ const submitMail = e => {
     </MDBCol>
   </MDBRow>
 </MDBContainer>
+<Modal  open={open && mailSuccessful} onClose={onCloseModal} center >
+    <br/>
+    <br/>
+    <h2 style={{textAlign:"center"}}> ההודעה שלך נשלחה בהצלחה</h2>
+    <br/>
+    <br/>
+    <p>
+      ההודעה שלך התקבלה אצלנו במערכת, נחזור אליך בהקדם.
+    </p>
+  </Modal>
+  <Modal  open={open && mailFailed} onClose={onCloseModal} center>
+  <br/>
+  <br/>
+  <h2 style={{textAlign:"center"}}>  משהו השתבש ☹️</h2>
+  <br/>
+  <br/>
+  <p>
+    שליחת הודעה נכשלה,נסה מאוחר יותר או שלח מייל ל: hebrewsentimentaeteam@gmail.com.
+  </p>
+</Modal>
+
+
+
+
   </div>
 
 );

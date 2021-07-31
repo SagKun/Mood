@@ -42,11 +42,10 @@ const App = () => {
   const [size, setSize] = useState([0, 0]);
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  
   const [open, setOpen] = useState(false);
 
-  const onOpenModal = () => setOpen(true);
+
   const onCloseModal = () => {setOpen(false)
     SetTimedOut(false)};
 
@@ -321,11 +320,11 @@ const getTrends = async () => {
      
       <ScrollAnimation  animateIn='fadeIn' duration={2} animateOnce={true}>
       
-     
+    
 
 
     <div style={{flexDirection:"row"}}>
-    
+    {renderWordCloud()}
       <Draggable style={{"display":"inline","float":"left"}}>
       <div>
       <Fab
@@ -406,6 +405,7 @@ const getTrends = async () => {
   const renderWordCloud = () =>{
     if(wordsSet)
     {
+      console.log("word cloud should work")
       if(wordCloudState === "1")
         {
           return <WordCloud words={posWords} state={wordCloudState} style={wordsSet}/>;
