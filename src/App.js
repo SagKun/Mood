@@ -325,7 +325,7 @@ const getTrends = async () => {
 
 
     <div style={{flexDirection:"row"}}>
-    {renderWordCloud()}   
+    
       <Draggable style={{"display":"inline","float":"left"}}>
       <div>
       <Fab
