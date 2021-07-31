@@ -8,6 +8,13 @@
 }
 
 
+.loader{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10vh;
+}
+
 .particles-bg-canvas-self{
   position: fixed;
   height:100vh;

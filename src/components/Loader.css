@@ -1,0 +1,112 @@
+
+.box{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.percentage {
+  width:150px;
+  height:150px;
+  animation: bubble 5s infinite;
+}
+
+.percentage svg {
+  width:150px;
+  height:150px;
+ 
+
+}
+
+
+.shadow {
+    -webkit-filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+    filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+    /* Similar syntax to box-shadow */
+  }
+
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+.percentage svg circle {
+  width: 150px;
+  height:150px;
+  fill:none;
+  stroke-width: 10px;
+  stroke:#fff;
+  transform: translate(5px,5px);
+  stroke-dasharray: 440;
+  stroke-dashoffset: 440;
+  stroke-linecap:round;
+ 
+  
+}
+
+
+
+.percentage svg:hover {
+    transform: scale(1.2); 
+  }
+
+
+  @keyframes bubble {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  50% {
+    -webkit-transform: translateY(-10px) ;
+    transform: translateY(-10px);
+    -webkit-transform: translateX(10);
+    transform: translateX(10);
+  }
+  100%{
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+.box .percentage svg circle:nth-child(1){
+  stroke-dashoffset:0;
+  stroke:#ffdd40;
+}
+
+.box .percentage svg circle:nth-child(2){
+  stroke-dashoffset: 0;
+/*   stroke-dashoffset: calc (440 - (440*87)/100); */
+  stroke:#1f5156;
+  
+  animation: circle-draw 30s linear ;
+  transition: 0.3s;
+}
+
+@keyframes circle-draw{
+  0% {
+    stroke-dashoffset: 440;
+  }
+    
+  100% {
+        stroke-dashoffset:0;
+        }
+    }
+
+
+.percentage .number {
+  position: absolute;
+  top:0;
+  left:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:100%;
+  height:100%;
+}
+
+

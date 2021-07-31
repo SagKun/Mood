@@ -17,6 +17,9 @@ import react from './../resources/tech/react.png'
 
 
 const AboutTheProject = () => {
+
+
+
   return (
     <div >
        

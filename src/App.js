@@ -19,6 +19,7 @@ import SentimentPieChart from "./components/SentimentPieChart"
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import Trends from  './components/Trends'
+import Loader from './components/Loader'
 const App = () => {
   const initialRender = useRef(true);
 
@@ -189,6 +190,7 @@ const getGraph = async (searchId) => {
   );
     const data = await response.json();
     console.log("graph",data)
+    
     setChartData(data.dates); 
 };
 
@@ -234,15 +236,19 @@ const getTrends = async () => {
 
 
 
+
+
   const renderLoadingOrResults = () => {
    
     if (loading) {
       return <div >
         <div >
-        <BoxLoading  color="#1f5156" size="large" />
+        <div className="loader">
+        <Loader/>
+        </div>
         </div>
         
-        <div style={{marginTop:"200px"}}>
+        <div style={{marginTop:"3vh"}}>
         <RandomFact style={{padding:"20px"}}/>
         </div>
       </div> 
@@ -457,7 +463,7 @@ const getTrends = async () => {
     <button className= "search-button"  type="submit">חיפוש</button>   
   </form>
   
- 
+
   
   {renderLoadingOrResults()}
   
