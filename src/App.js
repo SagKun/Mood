@@ -20,6 +20,7 @@ import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import Trends from  './components/Trends'
 import Loader from './components/Loader'
+import ReactTooltip from 'react-tooltip';
 const App = () => {
   const initialRender = useRef(true);
 
@@ -390,7 +391,8 @@ const getTrends = async () => {
       </Slider >
       </div >
       </ScrollAnimation>
-        
+      
+
  
   
       </div>;
@@ -405,10 +407,13 @@ const getTrends = async () => {
   const renderWordCloud = () =>{
     if(wordsSet)
     {
-      console.log("word cloud should work")
+     
       if(wordCloudState === "1")
         {
-          return <WordCloud words={posWords} state={wordCloudState} style={wordsSet}/>;
+          return <div>
+            <WordCloud words={posWords} state={wordCloudState} style={wordsSet}/>;
+            
+            </div>
         }
       else if(wordCloudState === "-1")
         {
@@ -416,19 +421,25 @@ const getTrends = async () => {
         }
       else 
         {
-          return <WordCloud words={words} state={wordCloudState} style={wordsSet}/>;
+          return <div>
+            <WordCloud  words={words} state={wordCloudState} style={wordsSet}/>
+            
+          </div> ;
         }
           
       }
     else 
     {
-      return <WordCloud loading={true}/>
+      return  <div >
+ <WordCloud  loading={true}/>
+
+    </div>
+     
     }
 
     
 
   }
-  
   
 
   const updateSearch = e => {

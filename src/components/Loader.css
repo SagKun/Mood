@@ -83,7 +83,7 @@
 /*   stroke-dashoffset: calc (440 - (440*87)/100); */
   stroke:#1f5156;
   
-  animation: circle-draw 35s linear ;
+  animation: circle-draw 40s linear ;
   transition: 0.3s;
 }
 

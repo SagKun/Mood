@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './result.module.css';
-import { MDBIcon } from 'mdb-react-ui-kit';
-import { MDBRow, MDBCol, MDBCard, MDBCardBody,MDBAnimation, MDBCardImage} from "mdbreact";
+
+import {MDBCard} from "mdbreact";
 
 
 

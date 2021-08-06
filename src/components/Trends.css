@@ -17,10 +17,25 @@
   left: 0;
   width: 100%;
   height:60vh;
+  margin-top: 5vh;
  
   
  
 }
+.header{
+  position: relative;
+  color:#1f5156;
+  text-transform: uppercase;
+  -webkit-animation: bubble 20s infinite;
+  -webkit-animation-timing-function: linear;
+  animation: bubble 20s linear infinite;
+  opacity: 0.8;
+  font-size: 3em;
+  vertical-align: middle;
+  text-shadow: 0.5px 0.5px #888888;
+}
+
+
 
 .bubble-hover:hover{
   color:green;
@@ -37,7 +52,7 @@
   background-color: #1f5156;
   top: 5%;
   left:50%;
-  -webkit-animation: bubble 5s infinite;
+  -webkit-animation: bubble 10s infinite;
   -webkit-animation-timing-function: linear;
   animation: bubble 10s linear infiwnite;
   
@@ -91,9 +106,9 @@
 
 .bg-bubbles li:nth-child(6) {
   
-  top: 25%;
-  left:47%;
-
+  top: 60%;
+  left:55%;
+ 
 
   -webkit-animation-delay: 500ms;
 }
@@ -102,7 +117,7 @@
   
   top: 45%;
   left:50%;
- 
+
 
  
 }
@@ -163,6 +178,40 @@
   left:45%;
  
   
+}
+.bg-bubbles li:nth-child(16) {
+  
+  top: 25%;
+  left:47%;
+ 
+  
+}
+
+.help{
+  position: absolute;
+  list-style: none;
+  left: 70%;
+  top:70%;
+  width: 300px;
+  height: 300px;
+  border-radius: 80px;
+  color:white;
+  background-color: #1f5156;
+  
+  -webkit-animation: bubble 10s infinite;
+  -webkit-animation-timing-function: linear;
+  animation: bubble 10s linear infiwnite;
+  
+  text-align:center;
+  box-shadow: 0px 3px #888888;
+
+  
+  line-height: 1em; /* a */
+  max-height: 5em; 
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
 }
 
 
@@ -280,11 +329,19 @@
   
   .bg-bubbles li:nth-child(6) {
     
-    top: 27%;
-    left:40%;
-  
+    top: 65%;
+    left:60%;
+
    
     -webkit-animation-delay: 500ms;
+  }
+
+  .bg-bubbles li:nth-child(16) {
+  
+    top: 27%;
+    left:40%;
+   
+    
   }
   
   .bg-bubbles li:nth-child(7) {
@@ -415,11 +472,13 @@
   
   .bg-bubbles li:nth-child(4) {
    
-    top: 5%;
-    left:37%;
-   
+    top: 0%;
+    left:35%;
+    background: crimson;
   }
-  
+
+
+
   .bg-bubbles li:nth-child(5) {
     
     top: 40%;
@@ -428,11 +487,19 @@
   
   .bg-bubbles li:nth-child(6) {
     
-    top: 25%;
-    left:40%;
+   left:70%;
+   top:65%;
   
    
     -webkit-animation-delay: 500ms;
+  }
+
+  .bg-bubbles li:nth-child(16) {
+  
+    top: 25%;
+    left:40%;
+   
+    
   }
   
   .bg-bubbles li:nth-child(7) {

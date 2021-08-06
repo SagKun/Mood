@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import moment from 'moment';
+import "./Cloud.css"
 import style from './result.module.css';
-
+import ReactTooltip from 'react-tooltip';
 const CustomizedPosDot = (props) => {
   const { cx, cy, stroke, payload, value } = props;
 
@@ -45,35 +46,40 @@ render(){
 
 
     return(
-        <div className={style.chart}>
+        <div data-tip="גרף המציג סנטימנט לאורך זמן: <br/>
+
+        עבור כל יום מוצגים מספר הציוצים שסווגו חיוביים ושליליים, <br/>
+        בצורה זו ניתן למצוא אירועים שקרו ולהבין את סנטימט הציבור אליהם.<br/>"  className={style.chart}>
         <ResponsiveContainer width="100%" height="100%">
         <LineChart
-          width={800}
+          width={700}
           height={500}
           data={this.props.data}
           margin={{
             top: 5,
-            right: 30,
-            left: 20,
+            right: 5,
+            left: 5,
             bottom: 5,
           }}
+          
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis 
            dataKey="date"
-
+           x={20}
            tickFormatter={tickItem => {
             return moment(tickItem).format('D MMM')
           }}
            domain={[10, 100]}
            />
-          <YAxis />
+          <YAxis  dx={-20}/>
           <Tooltip />
           <Legend />
           <Line type="monotone" name="ציוצים שליליים" dataKey="Num_Of_Neg" stroke="#56241f" dot={<CustomizedNegDot />}/>
           <Line type="monotone" name="ציוצים חיוביים" dataKey="Num_Of_Pos" stroke="#35561f" dot={<CustomizedPosDot />}/>
         </LineChart>
       </ResponsiveContainer>
+      <ReactTooltip className="customtooltip" multiline={true} type="solid" effect="top" />
       </div>
         
          
