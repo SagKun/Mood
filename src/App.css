@@ -61,7 +61,7 @@
   margin-left:auto;
   margin-right:auto;  
   vertical-align:middle;
-  margin-top: 10vh;
+  margin-top: 15vh;
   
 }
 
@@ -182,6 +182,18 @@ position: fixed;
     box-shadow: 0px 1px 2px gray;
     transform: scale(0.8);
   }
+
+  .search-button-disabled{
+    background:grey;
+    border:none;
+    padding:10px 20px;
+    margin-right: 2px;
+    color:white;
+    border-radius: 5px;
+    box-shadow: 0px 1px 2px gray;
+    transform: scale(0.8);
+    cursor: default !important;
+  }
  }
 @media screen and (max-width: 600px) {
   .search-form{
@@ -221,6 +233,19 @@ position: fixed;
     box-shadow: 0px 1px 2px gray;
     transform: scale(0.8);
   }
+
+  .search-button-disabled{
+    background:grey;
+    border:none;
+    padding:10px 20px;
+    margin-right: 2px;
+    color:white;
+    border-radius: 5px;
+    box-shadow: 0px 1px 2px gray;
+    transform: scale(0.8);
+    cursor: default !important;
+  }
+  
 }
 
 .customOverlay {
