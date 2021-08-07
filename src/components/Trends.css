@@ -1,5 +1,12 @@
+.react-tooltip-lite {
+  background: #1f5156;
+  color: white;
+  text-align: right;
+}
 
-
+.tootipHeader{
+  text-align: center;
+}
 
 .bg-bubbles li:hover {
 
@@ -17,23 +24,12 @@
   left: 0;
   width: 100%;
   height:60vh;
-  margin-top: 5vh;
+  
  
   
  
 }
-.header{
-  position: relative;
-  color:#1f5156;
-  text-transform: uppercase;
-  -webkit-animation: bubble 20s infinite;
-  -webkit-animation-timing-function: linear;
-  animation: bubble 20s linear infinite;
-  opacity: 0.8;
-  font-size: 3em;
-  vertical-align: middle;
-  text-shadow: 0.5px 0.5px #888888;
-}
+
 
 
 

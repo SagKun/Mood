@@ -20,7 +20,8 @@ import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import Trends from  './components/Trends'
 import Loader from './components/Loader'
-import ReactTooltip from 'react-tooltip';
+import TooltipLite from 'react-tooltip-lite';
+
 const App = () => {
   const initialRender = useRef(true);
 
@@ -285,7 +286,7 @@ const getTrends = async () => {
       else
       {
       return <div>
-      <ScrollAnimation  animateIn='fadeIn' duration={2} animateOnce={true}> 
+      <ScrollAnimation  animateIn='fadeIn' duration={1} animateOnce={true}> 
       <div className="flex-container">
       <div className="child">
     
@@ -319,11 +320,18 @@ const getTrends = async () => {
       </div>
       </ScrollAnimation>
      
-      <ScrollAnimation  animateIn='fadeIn' duration={2} animateOnce={true}>
+      <ScrollAnimation  animateIn='fadeIn' duration={1} animateOnce={true}>
       
     
 
-
+      <TooltipLite mouseOutDelay={0} content={(<div><div className="tootipHeader"> ענן מילים:</div>
+      <br/>
+      <div>גודל המילה מייצגת את השכיחות שלה באוסף הציוצים.</div>
+      <div>
+            ניתן לשחק עם אוסף הציוצים,לבחור להציג ציוצים שליליים,חיוביים או גם חיוביים וגם שליליים.
+      </div>
+      <br/>
+      </div>)}>
     <div style={{flexDirection:"row"}}>
     {renderWordCloud()}
       <Draggable style={{"display":"inline","float":"left"}}>
@@ -364,25 +372,32 @@ const getTrends = async () => {
       
       
       </div>
-
+      </TooltipLite>
         
     
       
       </ScrollAnimation>
 
-      <ScrollAnimation  animateIn='fadeIn' duration={2} animateOnce={true}>
+      <ScrollAnimation  animateIn='fadeIn' duration={1} animateOnce={true}>
 
       
-      
+      <TooltipLite mouseOutDelay={0} content={(<div><div className="tootipHeader"> סנטינט לאורך זמן:</div>
+      <br/>
+      <div>עבור כל יום מוצגים מספר הציוצים שסווגו חיוביים ושליליים,</div>
+      <div>
+      בצורה זו ניתן למצוא אירועים שקרו ולהבין את סנטימט הציבור אליהם.
+      </div>
+      <br/>
+      </div>)}>
       <SentimentLineChart data={chartData}/>
-      
+      </TooltipLite>
       
      
       </ScrollAnimation>
     
     
 
-      <ScrollAnimation  animateIn='fadeIn' duration={2} animateOnce={true}>
+      <ScrollAnimation  animateIn='fadeIn' duration={1} animateOnce={true}>
       <div className="carousel-wrapper">
       <Slider {...settings} >
         
@@ -441,7 +456,10 @@ const getTrends = async () => {
 
   }
   
-
+ function resetSearch(){
+   setQuery("");
+   window.location.reload();
+ }
   const updateSearch = e => {
     setSearch(e.target.value);
   }
@@ -470,8 +488,9 @@ const getTrends = async () => {
 
 
   <form onSubmit = {getSearch} className="search-form">
-    <input className= "search-bar" placeholder="חפש חברה, אישיות, יישות, מותג, מקום או כל דבר שמעניין אותך..." style={{textAlign: 'right'}} type="text" value={search} onChange={updateSearch}/>
-    <button className= "search-button"  type="submit">חיפוש</button>   
+    <input className= "search-bar" type="search" placeholder="חפש חברה, אישיות, יישות, מותג, מקום או כל דבר שמעניין אותך..." style={{textAlign: 'right'}} type="text" value={search} onChange={updateSearch}/>
+    <MDBIcon className="cancelSearch" style={query!=="" ? {} : { display: 'none' }} onClick={resetSearch} size="lg" icon="times" />
+    <button className={search===""?"search-button-disabled":"search-button"} state={search===""?"disabled":"enabled"}  type="submit">חיפוש</button>   
   </form>
   
 

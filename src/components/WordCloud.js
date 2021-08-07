@@ -5,9 +5,8 @@ import ReactWordcloud from "react-wordcloud";
 import style from './result.module.css';
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
-
+import Tooltip from 'react-tooltip-lite';
 import "./Cloud.css"
-import ReactTooltip from 'react-tooltip';
 import { WaveTopBottomLoading} from 'react-loadingg';
 class WordCloud extends React.Component{
 
@@ -77,26 +76,21 @@ function getCallback(callback) {
    if(!this.props.loading)
    return(
     
-    <div data-tip="ענן מילים: <br/><br/>
-
-    גודל המילה מייצגת את השכיחות שלה באוסף הציוצים.<br/>
-    ניתן לשחק עם אוסף הציוצים,לציוצים שליליים,חיוביים או גם חיוביים וגם שליליים.<br/>" className={this.props.state==="0"? style.cloudContainer:(this.props.state==="1"? style.posCloudContainer:style.negCloudContainer) }>
+    <div className={this.props.state==="0"? style.cloudContainer:(this.props.state==="1"? style.posCloudContainer:style.negCloudContainer) }>
       <ReactWordcloud  callbacks={callbacks} words={this.props.words} options={options} />
-      <ReactTooltip className="customtooltip"   multiline={true}  effect="solid"  place="top"/>
+      
     </div>
- 
+   
       
     
     ) 
     else
     return(
-      <div data-tip="ענן מילים: <br/><br/>
-
-      גודל המילה מייצגת את השכיחות שלה באוסף הציוצים.<br/>
-      ניתן לשחק עם אוסף הציוצים,לציוצים שליליים,חיוביים או גם חיוביים וגם שליליים.<br/>"  className={style.cloudContainer}>
+      
+      <div className={style.cloudContainer}>
         <WaveTopBottomLoading color="white" size="large" />
-        <ReactTooltip className="customtooltip" multiline={true} type="solid" effect="top" />
       </div>
+      
     )
 
 

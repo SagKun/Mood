@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 20;
     width: 100%;
@@ -20,7 +20,7 @@
     align-items: center;
     width: 100%;
     height: 80px;
-  
+   
   }
   
   .nav-logo {
@@ -110,13 +110,13 @@
       flex-direction: column;
       width: 100%;
       border-top: 1px solid #fff;
-      position: fixed;
+      position:fixed;
       top: 80px;
       left: -110%;
       opacity: 1;
       transition: all 0.5s ease;
       gap:15px;
-    
+      
      
     
     }

@@ -8,6 +8,16 @@
 }
 
 
+.hidden{
+  display: none;
+}
+
+.cancelSearch{
+  position:relative;
+  left:4%;
+  cursor: pointer;
+}
+
 .loader{
   display: flex;
   margin-left: auto;
@@ -72,6 +82,17 @@
   color:white;
   border-radius: 5px;
   box-shadow: 0px 1px 2px gray;
+}
+
+.search-button-disabled{
+  background:grey;
+  border:none;
+  padding:10px 20px;
+  margin-right: 5px;
+  color:white;
+  border-radius: 5px;
+  box-shadow: 0px 1px 2px gray;
+  cursor: default !important;
 }
 
 .carousel-wrapper {
@@ -140,7 +161,7 @@ position: fixed;
     margin-top: 10vh;
     
   }
-  
+ 
   .search-bar{
     width:100%;
     border: 1px solid #1f5156;
@@ -175,7 +196,11 @@ position: fixed;
     margin-top: 10vh;
     
   }
-  
+  .cancelSearch{
+    position:relative;
+    left:8%;
+  }
+
   .search-bar{
     width:100%;
     border: 1px solid #1f5156;
@@ -241,3 +266,18 @@ position: fixed;
 
 
 
+.cancelSearch:hover{
+  transform: scale(1.2);
+  
+}
+
+
+.react-tooltip-lite {
+  background: #1f5156;
+  color: white;
+  text-align: right;
+}
+
+.tootipHeader{
+  text-align: center;
+}
