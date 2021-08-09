@@ -23,7 +23,7 @@ ReactDOM.render(
   <React.StrictMode>
   <Router forceRefresh>
   <div className="particles">
-  <ParticlesBg num= {[80]} type="cobweb" color={"#1f5156"} bg={true}  />
+  <ParticlesBg  num= {[40]} type="cobweb" color={"#1f5156"} bg={true}  />
 </div>
   
  <NavBar/>

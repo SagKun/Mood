@@ -48,7 +48,6 @@ function getCallback(callback) {
     colors: ["white"],
     enableTooltip: true,
     deterministic: true,
-    fontFamily: "OCR A",
     fontSizes: [30, 60],  
     fontStyle: "normal",
     fontWeight: "normal",

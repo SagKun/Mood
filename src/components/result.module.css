@@ -4,10 +4,9 @@
     max-width:100%;
     box-shadow: 0px 5px 20px gray;
     background-color: white;
-    padding: 50px;
     margin-top: 30vw;
     margin-bottom: 30vw;
-    height:700px; 
+    height:600px; 
 }
 
 .pieChart{
@@ -26,13 +25,13 @@
     background-color:#35561f;
     align-items: center;
     text-align: center;
+   
     
 }
 
 .negativeResult{
   
     width: 100%;
-    
     background-color: #56241f;
     align-items: center;
     text-align: center;
@@ -56,7 +55,7 @@
         font-size: 15px;
         justify-content: center;
         align-items: center;
-        
+        cursor: pointer;
 }
 
 
@@ -189,7 +188,7 @@ color:white;
 
 .orcaText{
     color:white;
-    font-family:"OCR A";
+  
     font-size: 2em;
     font-weight: bolder;
 }
@@ -213,7 +212,7 @@ color:white;
 
 .orcaText{
     color:white;
-    font-family:"OCR A";
+    
     font-size: 2em;
     font-weight: bolder;
 }
@@ -225,7 +224,7 @@ color:white;
 
 .orcaText{
     color:white;
-    font-family:"OCR A";
+   
     font-size: 1.5em;
     font-weight: bolder;
 }

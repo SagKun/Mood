@@ -320,7 +320,7 @@ const getTrends = async () => {
       </div>
       </ScrollAnimation>
      
-      <ScrollAnimation  animateIn='fadeIn' duration={1} animateOnce={true}>
+      
       
     
 
@@ -376,9 +376,9 @@ const getTrends = async () => {
         
     
       
-      </ScrollAnimation>
+    
 
-      <ScrollAnimation  animateIn='fadeIn' duration={1} animateOnce={true}>
+      
 
       
       <TooltipLite mouseOutDelay={0} content={(<div><div className="tootipHeader"> סנטינט לאורך זמן:</div>
@@ -392,8 +392,7 @@ const getTrends = async () => {
       <SentimentLineChart data={chartData}/>
       </TooltipLite>
       
-     
-      </ScrollAnimation>
+    
     
     
 

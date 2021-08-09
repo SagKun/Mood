@@ -51,7 +51,7 @@ render(){
         <ResponsiveContainer width="100%" height="100%">
         <LineChart
           width={700}
-          height={500}
+          height={600}
           data={this.props.data}
           margin={{
             top: 5,

@@ -302,7 +302,9 @@ position: fixed;
   color: white;
   text-align: right;
 }
-
+.react-tooltip-lite-arrow{
+  color: #1f5156;
+}
 .tootipHeader{
   text-align: center;
 }
